@@ -827,6 +827,210 @@
       .hero-card .card-val { font-size: 1.5rem; }
       .btn { padding: 12px 20px; font-size: 0.85rem; }
     }
+
+    /* ============ GALLERY ============ */
+    #gallery { background: var(--dark); }
+    #gallery h2 { color: var(--white); }
+    #gallery h2 em { color: var(--sun); }
+    #gallery .section-tag { color: var(--sun); }
+    #gallery .section-intro { color: rgba(255,255,255,0.6); }
+
+    .gallery-filters {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .filter-btn {
+      padding: 8px 20px;
+      border-radius: 30px;
+      border: 1.5px solid rgba(255,255,255,0.2);
+      background: transparent;
+      color: rgba(255,255,255,0.6);
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--sun);
+      border-color: var(--sun);
+      color: var(--dark);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      cursor: pointer;
+      background: rgba(255,255,255,0.05);
+      transition: transform 0.25s;
+    }
+
+    .gallery-item:nth-child(3n+1) { grid-row: span 1; }
+    .gallery-item:nth-child(5n+2) { aspect-ratio: 4/3; }
+
+    .gallery-item:hover { transform: scale(1.02); z-index: 2; }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-item:hover img { transform: scale(1.06); }
+
+    .gallery-item .gi-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26,26,46,0.75) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      display: flex;
+      align-items: flex-end;
+      padding: 1rem;
+    }
+
+    .gallery-item:hover .gi-overlay { opacity: 1; }
+
+    .gallery-item .gi-caption {
+      font-size: 0.8rem;
+      color: var(--white);
+      font-weight: 500;
+    }
+
+    .gallery-item .gi-zoom {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.7);
+      width: 44px; height: 44px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      opacity: 0;
+      transition: all 0.25s;
+    }
+
+    .gallery-item:hover .gi-zoom {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    /* placeholder tiles for photos not yet added */
+    .gallery-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: rgba(255,255,255,0.04);
+      border: 2px dashed rgba(255,255,255,0.15);
+      border-radius: 14px;
+      color: rgba(255,255,255,0.3);
+      aspect-ratio: 4/3;
+      font-size: 0.78rem;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .gallery-placeholder .gp-icon { font-size: 2rem; opacity: 0.4; }
+
+    /* ============ LIGHTBOX ============ */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(10,10,20,0.95);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      flex-direction: column;
+    }
+
+    .lightbox.open { display: flex; }
+
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 80vh;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    .lightbox-caption {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.65);
+    }
+
+    .lb-close {
+      position: fixed;
+      top: 1.5rem; right: 1.5rem;
+      width: 44px; height: 44px;
+      background: rgba(255,255,255,0.1);
+      border: none;
+      border-radius: 50%;
+      color: white;
+      font-size: 1.3rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+
+    .lb-close:hover { background: rgba(255,255,255,0.2); }
+
+    .lb-prev, .lb-next {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px; height: 50px;
+      background: rgba(255,255,255,0.1);
+      border: none;
+      border-radius: 50%;
+      color: white;
+      font-size: 1.3rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+
+    .lb-prev { left: 1.5rem; }
+    .lb-next { right: 1.5rem; }
+    .lb-prev:hover, .lb-next:hover { background: rgba(255,255,255,0.2); }
+
+    .gallery-note {
+      margin-top: 2rem;
+      padding: 1.2rem 1.5rem;
+      background: rgba(245,166,35,0.1);
+      border: 1px solid rgba(245,166,35,0.25);
+      border-radius: 12px;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.7;
+    }
+
+    .gallery-note strong { color: var(--sun); }
   </style>
 </head>
 <body>
@@ -847,6 +1051,7 @@
     <a href="#how" data-de="So funktioniert's" data-fr="Comment ça marche">So funktioniert's</a>
     <a href="#info" data-de="Infos & Preise" data-fr="Infos & Prix">Infos & Preise</a>
     <a href="#register" data-de="Anmelden" data-fr="S'inscrire">Anmelden</a>
+    <a href="#gallery" data-de="Galerie 2025" data-fr="Galerie 2025">Galerie 2025</a>
     <a href="#contact" data-de="Kontakt" data-fr="Contact">Kontakt</a>
     <div class="lang-toggle">
       <button class="lang-btn active" onclick="setLang('de')">DE</button>
@@ -866,6 +1071,7 @@
   <a href="#how" onclick="toggleMenu()" data-de="So funktioniert's" data-fr="Comment ça marche">So funktioniert's</a>
   <a href="#info" onclick="toggleMenu()" data-de="Infos & Preise" data-fr="Infos & Prix">Infos & Preise</a>
   <a href="#register" onclick="toggleMenu()" data-de="Anmelden" data-fr="S'inscrire">Anmelden</a>
+  <a href="#gallery" onclick="toggleMenu()" data-de="Galerie 2025" data-fr="Galerie 2025">Galerie 2025</a>
   <a href="#contact" onclick="toggleMenu()" data-de="Kontakt" data-fr="Contact">Kontakt</a>
   <div class="lang-toggle" style="margin-top:0.5rem">
     <button class="lang-btn active" onclick="setLang('de')">DE</button>
@@ -1149,6 +1355,127 @@
   </div>
 </section>
 
+<!-- GALLERY 2025 -->
+<section id="gallery">
+  <div class="section-inner">
+    <div class="section-tag" data-de="Rückblick" data-fr="Rétrospective">Rückblick</div>
+    <h2 data-de="Galerie <em>Ferienpass 2025</em>" data-fr="Galerie <em>Passeport Vacances 2025</em>">Galerie <em>Ferienpass 2025</em></h2>
+    <p class="section-intro" data-de="Impressionen aus zwei unvergesslichen Wochen — Sport, Kreativität, Natur und jede Menge Spass!" data-fr="Impressions de deux semaines inoubliables — sport, créativité, nature et beaucoup de plaisir !">
+      Impressionen aus zwei unvergesslichen Wochen — Sport, Kreativität, Natur und jede Menge Spass!
+    </p>
+
+    <!-- Filter buttons -->
+    <div class="gallery-filters">
+      <button class="filter-btn active" data-filter="all" data-de="Alle" data-fr="Tous">Alle</button>
+      <button class="filter-btn" data-filter="sport" data-de="⚽ Sport" data-fr="⚽ Sport">⚽ Sport</button>
+      <button class="filter-btn" data-filter="kreativ" data-de="🎨 Kreativität" data-fr="🎨 Créativité">🎨 Kreativität</button>
+      <button class="filter-btn" data-filter="natur" data-de="🐾 Natur & Tiere" data-fr="🐾 Nature & Animaux">🐾 Natur & Tiere</button>
+      <button class="filter-btn" data-filter="spiel" data-de="🎮 Spiel & Spass" data-fr="🎮 Jeux & Plaisir">🎮 Spiel & Spass</button>
+      <button class="filter-btn" data-filter="event" data-de="🎪 Events" data-fr="🎪 Événements">🎪 Events</button>
+    </div>
+
+    <!-- Gallery grid -->
+    <div class="gallery-grid" id="galleryGrid">
+
+      <!-- =====================================================================
+           ANLEITUNG: Ersetze die Platzhalter unten durch deine eigenen Fotos!
+           Lege deine Bilder in einen Ordner "photos/" neben der index.html ab.
+           Beispiel: <img src="photos/kurs-bogenschiessen.jpg" ...>
+           Kategorien: sport | kreativ | natur | spiel | event
+           ===================================================================== -->
+
+      <div class="gallery-item" data-cat="sport" onclick="openLightbox(0)">
+        <img src="photos/sport-01.jpg" onerror="this.parentElement.classList.add('img-missing')" alt="Ferienpass Murten 2025 – Sport">
+        <div class="gi-overlay"><span class="gi-caption" data-de="Sport & Bewegung" data-fr="Sport & Mouvement">Sport & Bewegung</span></div>
+        <div class="gi-zoom">🔍</div>
+      </div>
+
+      <div class="gallery-item" data-cat="kreativ" onclick="openLightbox(1)">
+        <img src="photos/kreativ-01.jpg" onerror="this.parentElement.classList.add('img-missing')" alt="Ferienpass Murten 2025 – Kreativität">
+        <div class="gi-overlay"><span class="gi-caption" data-de="Kreativ-Workshop" data-fr="Atelier créatif">Kreativ-Workshop</span></div>
+        <div class="gi-zoom">🔍</div>
+      </div>
+
+      <div class="gallery-item" data-cat="natur" onclick="openLightbox(2)">
+        <img src="photos/natur-01.jpg" onerror="this.parentElement.classList.add('img-missing')" alt="Ferienpass Murten 2025 – Natur">
+        <div class="gi-overlay"><span class="gi-caption" data-de="Natur erleben" data-fr="Découvrir la nature">Natur erleben</span></div>
+        <div class="gi-zoom">🔍</div>
+      </div>
+
+      <div class="gallery-item" data-cat="spiel" onclick="openLightbox(3)">
+        <img src="photos/spiel-01.jpg" onerror="this.parentElement.classList.add('img-missing')" alt="Ferienpass Murten 2025 – Spiel">
+        <div class="gi-overlay"><span class="gi-caption" data-de="Spiel & Spass" data-fr="Jeux & Plaisir">Spiel & Spass</span></div>
+        <div class="gi-zoom">🔍</div>
+      </div>
+
+      <div class="gallery-item" data-cat="event" onclick="openLightbox(4)">
+        <img src="photos/event-01.jpg" onerror="this.parentElement.classList.add('img-missing')" alt="Ferienpass Murten 2025 – Event">
+        <div class="gi-overlay"><span class="gi-caption" data-de="Besonderer Ausflug" data-fr="Sortie spéciale">Besonderer Ausflug</span></div>
+        <div class="gi-zoom">🔍</div>
+      </div>
+
+      <div class="gallery-item" data-cat="sport" onclick="openLightbox(5)">
+        <img src="photos/sport-02.jpg" onerror="this.parentElement.classList.add('img-missing')" alt="Ferienpass Murten 2025 – Sport">
+        <div class="gi-overlay"><span class="gi-caption" data-de="Klettern & Kräfte messen" data-fr="Escalade & défis">Klettern & Kräfte messen</span></div>
+        <div class="gi-zoom">🔍</div>
+      </div>
+
+      <div class="gallery-item" data-cat="kreativ" onclick="openLightbox(6)">
+        <img src="photos/kreativ-02.jpg" onerror="this.parentElement.classList.add('img-missing')" alt="Ferienpass Murten 2025 – Kreativität">
+        <div class="gi-overlay"><span class="gi-caption" data-de="Malen & Gestalten" data-fr="Peindre & créer">Malen & Gestalten</span></div>
+        <div class="gi-zoom">🔍</div>
+      </div>
+
+      <div class="gallery-item" data-cat="natur" onclick="openLightbox(7)">
+        <img src="photos/natur-02.jpg" onerror="this.parentElement.classList.add('img-missing')" alt="Ferienpass Murten 2025 – Tiere">
+        <div class="gi-overlay"><span class="gi-caption" data-de="Begegnung mit Tieren" data-fr="Rencontre avec les animaux">Begegnung mit Tieren</span></div>
+        <div class="gi-zoom">🔍</div>
+      </div>
+
+      <div class="gallery-item" data-cat="event" onclick="openLightbox(8)">
+        <img src="photos/event-02.jpg" onerror="this.parentElement.classList.add('img-missing')" alt="Ferienpass Murten 2025 – Ausflug">
+        <div class="gi-overlay"><span class="gi-caption" data-de="Gemeinsam unterwegs" data-fr="En balade ensemble">Gemeinsam unterwegs</span></div>
+        <div class="gi-zoom">🔍</div>
+      </div>
+
+      <div class="gallery-item" data-cat="spiel" onclick="openLightbox(9)">
+        <img src="photos/spiel-02.jpg" onerror="this.parentElement.classList.add('img-missing')" alt="Ferienpass Murten 2025 – Spiel">
+        <div class="gi-overlay"><span class="gi-caption" data-de="Teamspiele & Abenteuer" data-fr="Jeux d'équipe & aventure">Teamspiele & Abenteuer</span></div>
+        <div class="gi-zoom">🔍</div>
+      </div>
+
+      <div class="gallery-item" data-cat="sport" onclick="openLightbox(10)">
+        <img src="photos/sport-03.jpg" onerror="this.parentElement.classList.add('img-missing')" alt="Ferienpass Murten 2025 – Sport">
+        <div class="gi-overlay"><span class="gi-caption" data-de="Wasserspass" data-fr="Plaisirs aquatiques">Wasserspass</span></div>
+        <div class="gi-zoom">🔍</div>
+      </div>
+
+      <div class="gallery-item" data-cat="kreativ" onclick="openLightbox(11)">
+        <img src="photos/kreativ-03.jpg" onerror="this.parentElement.classList.add('img-missing')" alt="Ferienpass Murten 2025 – Theater">
+        <div class="gi-overlay"><span class="gi-caption" data-de="Theater & Auftritt" data-fr="Théâtre & représentation">Theater & Auftritt</span></div>
+        <div class="gi-zoom">🔍</div>
+      </div>
+
+    </div><!-- /.gallery-grid -->
+
+    <!-- Info note -->
+    <div class="gallery-note">
+      <strong data-de="📸 Eigene Fotos hinzufügen:" data-fr="📸 Ajouter vos propres photos :">📸 Eigene Fotos hinzufügen:</strong>
+      <span data-de=" Lege deine Ferienpass-Fotos in einen Ordner namens <code style='background:rgba(255,255,255,0.1);padding:2px 6px;border-radius:4px;'>photos/</code> neben dieser HTML-Datei ab und benenne sie entsprechend (z.B. <code style='background:rgba(255,255,255,0.1);padding:2px 6px;border-radius:4px;'>sport-01.jpg</code>). Mehr Fotos lassen sich einfach durch Kopieren eines &lt;div class=&quot;gallery-item&quot;&gt; Blocks im HTML hinzufügen." data-fr=" Placez vos photos du Passeport Vacances dans un dossier nommé <code style='background:rgba(255,255,255,0.1);padding:2px 6px;border-radius:4px;'>photos/</code> à côté de ce fichier HTML et nommez-les en conséquence (par ex. <code style='background:rgba(255,255,255,0.1);padding:2px 6px;border-radius:4px;'>sport-01.jpg</code>). D'autres photos peuvent être ajoutées facilement en copiant un bloc &lt;div class=&quot;gallery-item&quot;&gt; dans le HTML."> Lege deine Ferienpass-Fotos in einen Ordner namens <code style="background:rgba(255,255,255,0.1);padding:2px 6px;border-radius:4px;">photos/</code> neben dieser HTML-Datei ab und benenne sie entsprechend (z.B. <code style="background:rgba(255,255,255,0.1);padding:2px 6px;border-radius:4px;">sport-01.jpg</code>). Mehr Fotos lassen sich einfach durch Kopieren eines &lt;div class="gallery-item"&gt; Blocks im HTML hinzufügen.</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightboxOnBackdrop(event)">
+  <button class="lb-close" onclick="closeLightbox()">✕</button>
+  <button class="lb-prev" onclick="navigateLightbox(-1)">‹</button>
+  <button class="lb-next" onclick="navigateLightbox(1)">›</button>
+  <img id="lightboxImg" src="" alt="">
+  <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="section-inner">
@@ -1164,14 +1491,14 @@
             <div class="ci-icon sun">✉️</div>
             <div class="ci-text">
               <h4 data-de="E-Mail (Deutsch)" data-fr="E-mail (Allemand)">E-Mail (Deutsch)</h4>
-              <a href="mailto:info@ferienpass-murten.ch">info@ferienpass-murten.ch</a>
+              <a href="/cdn-cgi/l/email-protection#3e575058517e585b4c575b504e5f4d4d13534b4c4a5b50105d56"><span class="__cf_email__" data-cfemail="8ce5e2eae3cceae9fee5e9e2fcedffffa1e1f9fef8e9e2a2efe4">[email&#160;protected]</span></a>
             </div>
           </div>
           <div class="contact-item">
             <div class="ci-icon sky">✉️</div>
             <div class="ci-text">
               <h4 data-de="E-Mail (Français)" data-fr="E-mail (Français)">E-Mail (Français)</h4>
-              <a href="mailto:info@passeport-vacances-morat.ch">info@passeport-vacances-morat.ch</a>
+              <a href="/cdn-cgi/l/email-protection#335a5d555c734352404056435c41471e455250525d5056401e5e5c4152471d505b"><span class="__cf_email__" data-cfemail="81e8efe7eec1f1e0f2f2e4f1eef3f5acf7e0e2e0efe2e4f2aceceef3e0f5afe2e9">[email&#160;protected]</span></a>
             </div>
           </div>
           <div class="contact-item">
@@ -1217,13 +1544,13 @@
   <strong>Ferienpass Murten | Passeport Vacances Morat</strong><br>
   <span data-de="© 2025 Verein Ferienpass Murten. Alle Rechte vorbehalten." data-fr="© 2025 Association Passeport Vacances Morat. Tous droits réservés.">© 2025 Verein Ferienpass Murten. Alle Rechte vorbehalten.</span>
   <div class="footer-links">
-    <a href="mailto:info@ferienpass-murten.ch">info@ferienpass-murten.ch</a>
-    <a href="mailto:info@passeport-vacances-morat.ch">info@passeport-vacances-morat.ch</a>
+    <a href="/cdn-cgi/l/email-protection#cda4a3aba28daba8bfa4a8a3bdacbebee0a0b8bfb9a8a3e3aea5"><span class="__cf_email__" data-cfemail="e881868e87a88e8d9a818d8698899b9bc5859d9a9c8d86c68b80">[email&#160;protected]</span></a>
+    <a href="/cdn-cgi/l/email-protection#0960676f664979687a7a6c79667b7d247f686a68676a6c7a2464667b687d276a61"><span class="__cf_email__" data-cfemail="cda4a3aba28dbdacbebea8bda2bfb9e0bbacaeaca3aea8bee0a0a2bfacb9e3aea5">[email&#160;protected]</span></a>
     <a href="#hero" data-de="Zurück nach oben" data-fr="Retour en haut">↑ <span data-de="Zurück nach oben" data-fr="Retour en haut">Zurück nach oben</span></a>
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // ===================== LANGUAGE SWITCH =====================
   let currentLang = 'de';
 
@@ -1255,13 +1582,78 @@
   document.addEventListener('click', function(e) {
     const menu = document.getElementById('mobileMenu');
     const hamburger = document.querySelector('.hamburger');
-    if (menu.classList.contains('open') && !menu.contains(e.target) && !hamburger.contains(e.target)) {
+    if (menu.classList.contains('open') && !menu.contains(e.target) && !hamburger.contains(e.target))) {
       menu.classList.remove('open');
     }
   });
 
+  // ===================== GALLERY FILTER =====================
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.gallery-item').forEach(item => {
+        const show = filter === 'all' || item.dataset.cat === filter;
+        item.style.display = show ? '' : 'none';
+      });
+    });
+  });
+
+  // ===================== LIGHTBOX =====================
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  let currentLbIndex = 0;
+
+  function openLightbox(index) {
+    currentLbIndex = index;
+    updateLightbox();
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function updateLightbox() {
+    const item = galleryItems[currentLbIndex];
+    if (!item) return;
+    const img = item.querySelector('img');
+    const caption = item.querySelector('.gi-caption');
+    document.getElementById('lightboxImg').src = img ? img.src : '';
+    document.getElementById('lightboxCaption').textContent = caption ? caption.textContent : '';
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function closeLightboxOnBackdrop(e) {
+    if (e.target === document.getElementById('lightbox')) closeLightbox();
+  }
+
+  function navigateLightbox(dir) {
+    currentLbIndex = (currentLbIndex + dir + galleryItems.length) % galleryItems.length;
+    updateLightbox();
+  }
+
+  document.addEventListener('keydown', e => {
+    if (!document.getElementById('lightbox').classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') navigateLightbox(1);
+    if (e.key === 'ArrowLeft') navigateLightbox(-1);
+  });
+
+  // Replace broken images with placeholder
+  document.querySelectorAll('.gallery-item img').forEach(img => {
+    img.addEventListener('error', () => {
+      const item = img.closest('.gallery-item');
+      const fname = img.src.split('/').pop();
+      item.innerHTML = `<div class="gallery-placeholder"><span class="gp-icon">📷</span><span>Foto einfügen<br><small>${fname}</small></span></div>`;
+      item.style.cursor = 'default';
+      item.onclick = null;
+    });
+  });
+
   // ===================== SCROLL ANIMATIONS =====================
-  const observer = new IntersectionObserver((entries) => {
+  const scrollObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.style.opacity = '1';
@@ -1270,11 +1662,11 @@
     });
   }, { threshold: 0.1 });
 
-  document.querySelectorAll('.activity-card, .step, .info-card, .reg-step, .highlight-item, .contact-item').forEach(el => {
+  document.querySelectorAll('.activity-card, .step, .info-card, .reg-step, .highlight-item, .contact-item, .gallery-item').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(24px)';
     el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    observer.observe(el);
+    scrollObserver.observe(el);
   });
 </script>
 </body>
