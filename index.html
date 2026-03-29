@@ -3,53 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ferienpass Murten / Passeport Vacances Morat</title>
+    <title>Ferienpass Murten | Passeport Vacances Morat</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
     <style>
-        .lang-fr { display: none; } /* Standardmäßig Französisch ausblenden */
+        body { font-family: 'Inter', sans-serif; }
+        .lang-fr { display: none; } /* Französisch standardmäßig verstecken */
+        .active-lang { font-weight: bold; text-decoration: underline; }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans">
+<body class="bg-slate-50 text-gray-900">
 
-    <nav class="bg-blue-600 text-white p-4 shadow-md sticky top-0 z-50">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-xl font-bold">Ferienpass Murten</h1>
-            <div class="space-x-4 flex items-center">
-                <a href="#" class="hover:underline lang-de">Programm</a>
-                <a href="#" class="hover:underline lang-fr">Programme</a>
-                <button onclick="setLanguage('de')" class="bg-white text-blue-600 px-2 py-1 rounded text-sm font-bold">DE</button>
-                <button onclick="setLanguage('fr')" class="bg-white text-blue-600 px-2 py-1 rounded text-sm font-bold">FR</button>
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 h-20 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <span class="text-2xl">🎡</span>
+                <span class="text-xl font-extrabold tracking-tight text-blue-600">Ferienpass <span class="text-yellow-500">Murten</span></span>
+            </div>
+            
+            <div class="hidden md:flex space-x-8 font-medium">
+                <a href="#info" class="hover:text-blue-600 transition lang-de">Infos</a>
+                <a href="#info" class="hover:text-blue-600 transition lang-fr">Infos</a>
+                <a href="#programm" class="hover:text-blue-600 transition lang-de">Programm</a>
+                <a href="#programm" class="hover:text-blue-600 transition lang-fr">Programme</a>
+                <a href="#kontakt" class="hover:text-blue-600 transition lang-de">Kontakt</a>
+                <a href="#kontakt" class="hover:text-blue-600 transition lang-fr">Contact</a>
+            </div>
+
+            <div class="flex items-center bg-gray-100 rounded-full px-3 py-1 border">
+                <button id="btn-de" onclick="setLanguage('de')" class="px-2 py-1 text-sm active-lang">DE</button>
+                <span class="text-gray-300">|</span>
+                <button id="btn-fr" onclick="setLanguage('fr')" class="px-2 py-1 text-sm text-gray-500">FR</button>
             </div>
         </div>
     </nav>
 
-    <header class="py-20 bg-blue-500 text-white text-center">
-        <h2 class="text-4xl font-extrabold mb-4 lang-de">Abenteuer in den Ferien!</h2>
-        <h2 class="text-4xl font-extrabold mb-4 lang-fr">L'aventure pendant les vacances !</h2>
-        <p class="text-xl lang-de">Melde dich jetzt für den Ferienpass Murten 2024 an.</p>
-        <p class="text-xl lang-fr">Inscris-toi maintenant au Passeport Vacances Morat 2024.</p>
-    </header>
-
-    <main class="container mx-auto p-8 text-center">
-        <div class="bg-white p-10 rounded-xl shadow-lg">
-            <h3 class="text-2xl font-bold mb-4 lang-de">Willkommen</h3>
-            <h3 class="text-2xl font-bold mb-4 lang-fr">Bienvenue</h3>
-            <p class="lang-de text-gray-600">Hier entstehen bald die neuen Inhalte für die Kinder aus Murten und Umgebung.</p>
-            <p class="lang-fr text-gray-600">Ici seront bientôt disponibles les nouveaux contenus pour les enfants de Morat et des environs.</p>
+    <section class="relative bg-blue-600 py-24 text-white text-center overflow-hidden">
+        <div class="relative z-10 max-w-4xl mx-auto px-4">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight lang-de italic">
+                Abenteuer erleben in den Ferien!
+            </h1>
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight lang-fr italic">
+                Vivre des aventures pendant les vacances !
+            </h1>
+            <p class="text-xl md:text-2xl mb-10 opacity-90 lang-de">Der Ferienpass Murten bietet Kindern und Jugendlichen eine spannende Zeit.</p>
+            <p class="text-xl md:text-2xl mb-10 opacity-90 lang-fr">Le Passeport Vacances Morat offre aux enfants et adolescents des moments passionnants.</p>
+            
+            <a href="#programm" class="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold py-4 px-10 rounded-full text-lg shadow-lg transition-transform transform hover:scale-105 inline-block lang-de">
+                Zum Programm 2024
+            </a>
+            <a href="#programm" class="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold py-4 px-10 rounded-full text-lg shadow-lg transition-transform transform hover:scale-105 inline-block lang-fr">
+                Vers le programme 2024
+            </a>
         </div>
-    </main>
+        <div class="absolute top-0 left-0 w-64 h-64 bg-blue-500 rounded-full -translate-x-1/2 -translate-y-1/2 opacity-50"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-blue-700 rounded-full translate-x-1/3 translate-y-1/3 opacity-50"></div>
+    </section>
+
+    <section id="info" class="py-20 max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 text-center">
+            <div class="text-4xl mb-4">📅</div>
+            <h3 class="text-xl font-bold mb-2 lang-de">Wann?</h3>
+            <h3 class="text-xl font-bold mb-2 lang-fr">Quand ?</h3>
+            <p class="text-gray-600 lang-de">Vom 7. bis 11. Oktober 2024.</p>
+            <p class="text-gray-600 lang-fr">Du 7 au 11 octobre 2024.</p>
+        </div>
+        <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 text-center">
+            <div class="text-4xl mb-4">👥</div>
+            <h3 class="text-xl font-bold mb-2 lang-de">Wer?</h3>
+            <h3 class="text-xl font-bold mb-2 lang-fr">Pour qui ?</h3>
+            <p class="text-gray-600 lang-de">Alle Schulkinder aus Murten und Umgebung.</p>
+            <p class="text-gray-600 lang-fr">Tous les écoliers de Morat et des environs.</p>
+        </div>
+        <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 text-center">
+            <div class="text-4xl mb-4">💰</div>
+            <h3 class="text-xl font-bold mb-2 lang-de">Kosten?</h3>
+            <h3 class="text-xl font-bold mb-2 lang-fr">Coûts ?</h3>
+            <p class="text-gray-600 lang-de">Günstige Tagespässe für alle Familien.</p>
+            <p class="text-gray-600 lang-fr">Des pass journaliers abordables pour toutes les familles.</p>
+        </div>
+    </section>
+
+    <footer id="kontakt" class="bg-slate-900 text-white py-16">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-8 lang-de">Kontakt & Fragen</h2>
+            <h2 class="text-3xl font-bold mb-8 lang-fr">Contact & Questions</h2>
+            <p class="mb-4 opacity-80">Verein Ferienpass Murten</p>
+            <p class="mb-8 opacity-80">E-Mail: info@ferienpass-murten.ch</p>
+            <div class="pt-8 border-t border-slate-800 text-sm opacity-50">
+                &copy; 2024 Ferienpass Murten / Passeport Vacances Morat
+            </div>
+        </div>
+    </footer>
 
     <script>
         function setLanguage(lang) {
             const deElements = document.querySelectorAll('.lang-de');
             const frElements = document.querySelectorAll('.lang-fr');
-            
+            const btnDe = document.getElementById('btn-de');
+            const btnFr = document.getElementById('btn-fr');
+
             if (lang === 'fr') {
                 deElements.forEach(el => el.style.display = 'none');
                 frElements.forEach(el => el.style.display = 'block');
+                btnFr.classList.add('active-lang', 'text-blue-600');
+                btnFr.classList.remove('text-gray-500');
+                btnDe.classList.remove('active-lang', 'text-blue-600');
+                btnDe.classList.add('text-gray-500');
+                document.documentElement.lang = 'fr';
             } else {
                 deElements.forEach(el => el.style.display = 'block');
                 frElements.forEach(el => el.style.display = 'none');
+                btnDe.classList.add('active-lang', 'text-blue-600');
+                btnDe.classList.remove('text-gray-500');
+                btnFr.classList.remove('active-lang', 'text-blue-600');
+                btnFr.classList.add('text-gray-500');
+                document.documentElement.lang = 'de';
             }
         }
     </script>
