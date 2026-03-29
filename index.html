@@ -1671,3 +1671,1613 @@
 </script>
 </body>
 </html>
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .logo-text strong {
+      font-family: var(--font-head);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .logo-text span {
+      font-size: 0.65rem;
+      color: var(--mid);
+      font-weight: 300;
+      letter-spacing: 0.04em;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 0.2rem;
+    }
+
+    nav a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--dark);
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 20px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    nav a:hover {
+      background: var(--sun);
+      color: var(--white);
+    }
+
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      background: var(--light-grey);
+      border-radius: 30px;
+      padding: 3px;
+      gap: 2px;
+      margin-left: 1rem;
+    }
+
+    .lang-btn {
+      padding: 5px 14px;
+      border: none;
+      background: transparent;
+      border-radius: 22px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      font-family: var(--font-body);
+      cursor: pointer;
+      color: var(--mid);
+      transition: all 0.25s;
+      letter-spacing: 0.05em;
+    }
+
+    .lang-btn.active {
+      background: var(--sky);
+      color: var(--white);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--dark);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* ============ HERO ============ */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 100px 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(160deg, #F2F9F4 0%, #D4ECD9 60%, #B8E0C4 100%);
+    }
+
+    .hero-bg-circle {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.12;
+      pointer-events: none;
+    }
+
+    .hero-bg-circle.c1 {
+      width: 600px; height: 600px;
+      background: var(--sun);
+      top: -150px; right: -180px;
+    }
+
+    .hero-bg-circle.c2 {
+      width: 350px; height: 350px;
+      background: var(--leaf);
+      bottom: -100px; left: -80px;
+    }
+
+    .hero-bg-circle.c3 {
+      width: 200px; height: 200px;
+      background: var(--sky);
+      top: 50%; left: 55%;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-label {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--clay);
+      background: rgba(58,140,92,0.12);
+      border-radius: 20px;
+      padding: 5px 14px;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-title {
+      font-family: var(--font-head);
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      font-weight: 900;
+      line-height: 1.05;
+      color: var(--dark);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--clay);
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--mid);
+      margin-bottom: 2rem;
+      max-width: 440px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      font-family: var(--font-body);
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all 0.25s;
+      letter-spacing: 0.02em;
+    }
+
+    .btn-primary {
+      background: var(--clay);
+      color: var(--white);
+      box-shadow: 0 4px 20px rgba(45,125,78,0.38);
+    }
+
+    .btn-primary:hover {
+      background: var(--dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(23,44,31,0.28);
+    }
+
+    .btn-secondary {
+      background: var(--white);
+      color: var(--dark);
+      border: 2px solid var(--dark);
+    }
+
+    .btn-secondary:hover {
+      background: var(--dark);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    .hero-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .hero-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      transition: transform 0.25s;
+    }
+
+    .hero-card:hover { transform: translateY(-4px); }
+
+    .hero-card.accent-sun { border-top: 4px solid var(--sun); }
+    .hero-card.accent-leaf { border-top: 4px solid var(--leaf); }
+    .hero-card.accent-sky { border-top: 4px solid var(--sky); }
+    .hero-card.accent-clay { border-top: 4px solid var(--clay); }
+
+    .hero-card .card-icon { font-size: 2rem; margin-bottom: 0.6rem; }
+
+    .hero-card .card-val {
+      font-family: var(--font-head);
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-card .card-label {
+      font-size: 0.78rem;
+      color: var(--mid);
+      font-weight: 500;
+    }
+
+    /* ============ SECTIONS ============ */
+    section { padding: 5rem 2rem; }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sky);
+      margin-bottom: 0.8rem;
+    }
+
+    h2 {
+      font-family: var(--font-head);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--dark);
+      margin-bottom: 1rem;
+    }
+
+    h2 em { font-style: italic; color: var(--clay); }
+
+    .section-intro {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--mid);
+      max-width: 600px;
+      margin-bottom: 3rem;
+    }
+
+    /* ============ ABOUT ============ */
+    #about { background: var(--white); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--mid);
+      margin-bottom: 1.2rem;
+    }
+
+    .about-highlights {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .highlight-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.2rem;
+      background: var(--cream);
+      border-radius: var(--radius);
+      border-left: 4px solid var(--sun);
+    }
+
+    .highlight-item .hi-icon { font-size: 1.6rem; flex-shrink: 0; }
+
+    .highlight-item h4 {
+      font-family: var(--font-head);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 0.3rem;
+    }
+
+    .highlight-item p {
+      font-size: 0.88rem;
+      color: var(--mid);
+      line-height: 1.6;
+    }
+
+    /* ============ ACTIVITIES ============ */
+    #activities { background: var(--light-grey); }
+
+    .activities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .activity-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .activity-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+    }
+
+    .activity-card.sport::before { background: var(--sky); }
+    .activity-card.kreativ::before { background: var(--clay); }
+    .activity-card.natur::before { background: var(--leaf); }
+    .activity-card.spiel::before { background: var(--sun); }
+    .activity-card.event::before { background: var(--dark); }
+
+    .activity-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+    }
+
+    .activity-card .ac-icon {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .activity-card h3 {
+      font-family: var(--font-head);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .activity-card p {
+      font-size: 0.82rem;
+      color: var(--mid);
+      line-height: 1.6;
+    }
+
+    /* ============ HOW IT WORKS ============ */
+    #how { background: var(--white); }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      position: relative;
+    }
+
+    .step {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      position: relative;
+    }
+
+    .step-num {
+      width: 56px; height: 56px;
+      background: var(--dark);
+      color: var(--white);
+      border-radius: 50%;
+      font-family: var(--font-head);
+      font-size: 1.4rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.2rem;
+    }
+
+    .step h3 {
+      font-family: var(--font-head);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      color: var(--dark);
+    }
+
+    .step p {
+      font-size: 0.88rem;
+      color: var(--mid);
+      line-height: 1.65;
+    }
+
+    /* ============ INFO ============ */
+    #info { background: var(--dark); color: var(--cream); }
+
+    #info h2 { color: var(--white); }
+    #info h2 em { color: var(--sun); }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .info-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius);
+      padding: 2rem;
+      transition: background 0.2s;
+    }
+
+    .info-card:hover { background: rgba(255,255,255,0.1); }
+
+    .info-card .ic-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+
+    .info-card h3 {
+      font-family: var(--font-head);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.6rem;
+    }
+
+    .info-card p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+    }
+
+    .info-card strong { color: var(--sun); }
+
+    .price-highlight {
+      margin-top: 3rem;
+      background: var(--sun);
+      border-radius: var(--radius);
+      padding: 2.5rem 3rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .price-highlight .ph-amount {
+      font-family: var(--font-head);
+      font-size: 4rem;
+      font-weight: 900;
+      color: var(--dark);
+      line-height: 1;
+    }
+
+    .price-highlight .ph-text h3 {
+      font-family: var(--font-head);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 0.4rem;
+    }
+
+    .price-highlight .ph-text p {
+      font-size: 0.9rem;
+      color: rgba(26,26,46,0.75);
+      line-height: 1.6;
+    }
+
+    /* ============ REGISTRATION ============ */
+    #register { background: linear-gradient(135deg, #2D7D4E 0%, #1A4A2E 100%); color: var(--white); }
+
+    #register h2 { color: var(--white); }
+    #register h2 em { color: var(--sun); }
+    #register .section-intro { color: rgba(255,255,255,0.75); }
+
+    .reg-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .reg-step {
+      background: rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      padding: 1.8rem;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .reg-step .rs-num {
+      font-family: var(--font-head);
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--sun);
+      line-height: 1;
+      margin-bottom: 0.8rem;
+    }
+
+    .reg-step h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .reg-step p {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.6;
+    }
+
+    .reg-cta {
+      text-align: center;
+    }
+
+    .btn-white {
+      background: var(--white);
+      color: var(--sky);
+      font-weight: 700;
+    }
+
+    .btn-white:hover {
+      background: var(--sun);
+      color: var(--dark);
+      transform: translateY(-2px);
+    }
+
+    .reg-note {
+      margin-top: 1.2rem;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.55);
+    }
+
+    /* ============ CONTACT ============ */
+    #contact { background: var(--cream); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .contact-info p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--mid);
+      margin-bottom: 2rem;
+    }
+
+    .contact-items {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.2rem;
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+
+    .contact-item .ci-icon {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .contact-item .ci-icon.sun { background: rgba(141,198,63,0.18); }
+    .contact-item .ci-icon.sky { background: rgba(45,125,78,0.1); }
+    .contact-item .ci-icon.leaf { background: rgba(91,191,117,0.12); }
+
+    .contact-item .ci-text h4 {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--mid);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .contact-item .ci-text a,
+    .contact-item .ci-text span {
+      font-size: 0.95rem;
+      color: var(--dark);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .contact-item .ci-text a:hover { color: var(--sky); text-decoration: underline; }
+
+    .supporters-box {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    }
+
+    .supporters-box h3 {
+      font-family: var(--font-head);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .supporters-box p {
+      font-size: 0.9rem;
+      color: var(--mid);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .supporter-badge {
+      display: inline-block;
+      padding: 6px 14px;
+      background: var(--light-grey);
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--mid);
+      margin: 4px;
+    }
+
+    /* ============ FOOTER ============ */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 3rem 2rem;
+      font-size: 0.82rem;
+      line-height: 1.8;
+    }
+
+    footer strong { color: var(--sun); }
+
+    footer .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    footer .footer-links a {
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      font-size: 0.8rem;
+      transition: color 0.2s;
+    }
+
+    footer .footer-links a:hover { color: var(--sun); }
+
+    /* ============ MOBILE NAV ============ */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 68px; left: 0; right: 0;
+      background: var(--cream);
+      border-bottom: 2px solid var(--sun);
+      padding: 1.5rem 2rem;
+      flex-direction: column;
+      gap: 0.5rem;
+      z-index: 99;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--dark);
+      text-decoration: none;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--light-grey);
+    }
+
+    /* ============ ANIMATIONS ============ */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-up { animation: fadeUp 0.7s ease both; }
+    .delay-1 { animation-delay: 0.15s; }
+    .delay-2 { animation-delay: 0.3s; }
+    .delay-3 { animation-delay: 0.45s; }
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width: 900px) {
+      nav { display: none; }
+      .hamburger { display: flex; }
+
+      .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-cards { grid-template-columns: 1fr 1fr; }
+
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+      .price-highlight { flex-direction: column; padding: 2rem; text-align: center; }
+    }
+
+    @media (max-width: 540px) {
+      header { padding: 0 1.2rem; }
+      section { padding: 3.5rem 1.2rem; }
+      .hero-cards { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+      .hero-card { padding: 1.2rem; }
+      .hero-card .card-val { font-size: 1.5rem; }
+      .btn { padding: 12px 20px; font-size: 0.85rem; }
+    }
+
+    /* ============ GALLERY ============ */
+    #gallery { background: var(--dark); }
+    #gallery h2 { color: var(--white); }
+    #gallery h2 em { color: var(--sun); }
+    #gallery .section-tag { color: var(--sun); }
+    #gallery .section-intro { color: rgba(255,255,255,0.6); }
+
+    .gallery-filters {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .filter-btn {
+      padding: 8px 20px;
+      border-radius: 30px;
+      border: 1.5px solid rgba(255,255,255,0.2);
+      background: transparent;
+      color: rgba(255,255,255,0.6);
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--sun);
+      border-color: var(--sun);
+      color: var(--dark);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      cursor: pointer;
+      background: rgba(255,255,255,0.05);
+      transition: transform 0.25s;
+    }
+
+    .gallery-item:nth-child(3n+1) { grid-row: span 1; }
+    .gallery-item:nth-child(5n+2) { aspect-ratio: 4/3; }
+
+    .gallery-item:hover { transform: scale(1.02); z-index: 2; }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-item:hover img { transform: scale(1.06); }
+
+    .gallery-item .gi-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26,26,46,0.75) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      display: flex;
+      align-items: flex-end;
+      padding: 1rem;
+    }
+
+    .gallery-item:hover .gi-overlay { opacity: 1; }
+
+    .gallery-item .gi-caption {
+      font-size: 0.8rem;
+      color: var(--white);
+      font-weight: 500;
+    }
+
+    .gallery-item .gi-zoom {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.7);
+      width: 44px; height: 44px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      opacity: 0;
+      transition: all 0.25s;
+    }
+
+    .gallery-item:hover .gi-zoom {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    /* placeholder tiles for photos not yet added */
+    .gallery-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: rgba(255,255,255,0.04);
+      border: 2px dashed rgba(255,255,255,0.15);
+      border-radius: 14px;
+      color: rgba(255,255,255,0.3);
+      aspect-ratio: 4/3;
+      font-size: 0.78rem;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .gallery-placeholder .gp-icon { font-size: 2rem; opacity: 0.4; }
+
+    /* ============ LIGHTBOX ============ */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(10,10,20,0.95);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      flex-direction: column;
+    }
+
+    .lightbox.open { display: flex; }
+
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 80vh;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    .lightbox-caption {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.65);
+    }
+
+    .lb-close {
+      position: fixed;
+      top: 1.5rem; right: 1.5rem;
+      width: 44px; height: 44px;
+      background: rgba(255,255,255,0.1);
+      border: none;
+      border-radius: 50%;
+      color: white;
+      font-size: 1.3rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+
+    .lb-close:hover { background: rgba(255,255,255,0.2); }
+
+    .lb-prev, .lb-next {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px; height: 50px;
+      background: rgba(255,255,255,0.1);
+      border: none;
+      border-radius: 50%;
+      color: white;
+      font-size: 1.3rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+
+    .lb-prev { left: 1.5rem; }
+    .lb-next { right: 1.5rem; }
+    .lb-prev:hover, .lb-next:hover { background: rgba(255,255,255,0.2); }
+
+    .gallery-note {
+      margin-top: 2rem;
+      padding: 1.2rem 1.5rem;
+      background: rgba(245,166,35,0.1);
+      border: 1px solid rgba(245,166,35,0.25);
+      border-radius: 12px;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.7;
+    }
+
+    .gallery-note strong { color: var(--sun); }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a class="logo" href="#hero">
+    <div class="logo-icon">🎒</div>
+    <div class="logo-text">
+      <strong data-de="Ferienpass Murten" data-fr="Passeport Vacances Morat">Ferienpass Murten</strong>
+      <span data-de="Passeport Vacances Morat" data-fr="Ferienpass Murten">Passeport Vacances Morat</span>
+    </div>
+  </a>
+
+  <nav>
+    <a href="#about" data-de="Über uns" data-fr="À propos">Über uns</a>
+    <a href="#activities" data-de="Aktivitäten" data-fr="Activités">Aktivitäten</a>
+    <a href="#how" data-de="So funktioniert's" data-fr="Comment ça marche">So funktioniert's</a>
+    <a href="#info" data-de="Infos & Preise" data-fr="Infos & Prix">Infos & Preise</a>
+    <a href="#register" data-de="Anmelden" data-fr="S'inscrire">Anmelden</a>
+    <a href="#gallery" data-de="Galerie 2025" data-fr="Galerie 2025">Galerie 2025</a>
+    <a href="#contact" data-de="Kontakt" data-fr="Contact">Kontakt</a>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('de')">DE</button>
+      <button class="lang-btn" onclick="setLang('fr')">FR</button>
+    </div>
+  </nav>
+
+  <div class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="toggleMenu()" data-de="Über uns" data-fr="À propos">Über uns</a>
+  <a href="#activities" onclick="toggleMenu()" data-de="Aktivitäten" data-fr="Activités">Aktivitäten</a>
+  <a href="#how" onclick="toggleMenu()" data-de="So funktioniert's" data-fr="Comment ça marche">So funktioniert's</a>
+  <a href="#info" onclick="toggleMenu()" data-de="Infos & Preise" data-fr="Infos & Prix">Infos & Preise</a>
+  <a href="#register" onclick="toggleMenu()" data-de="Anmelden" data-fr="S'inscrire">Anmelden</a>
+  <a href="#gallery" onclick="toggleMenu()" data-de="Galerie 2025" data-fr="Galerie 2025">Galerie 2025</a>
+  <a href="#contact" onclick="toggleMenu()" data-de="Kontakt" data-fr="Contact">Kontakt</a>
+  <div class="lang-toggle" style="margin-top:0.5rem">
+    <button class="lang-btn active" onclick="setLang('de')">DE</button>
+    <button class="lang-btn" onclick="setLang('fr')">FR</button>
+  </div>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-circle c1"></div>
+  <div class="hero-bg-circle c2"></div>
+  <div class="hero-bg-circle c3"></div>
+  <div class="hero-inner">
+    <div class="fade-up">
+      <div class="hero-label" data-de="🍂 Herbstferien Programm" data-fr="🍂 Programme vacances d'automne">🍂 Herbstferien Programm</div>
+      <h1 class="hero-title">
+        <span data-de="Zwei Wochen voller" data-fr="Deux semaines pleines">Zwei Wochen voller</span><br>
+        <em data-de="Spiel, Sport &amp; Spass!" data-fr="Jeux, Sport &amp; Aventure !">Spiel, Sport &amp; Spass!</em>
+      </h1>
+      <p class="hero-desc" data-de="Der Ferienpass Murten bietet Schulkindern der Region ein buntes Ferienprogramm während der Herbstferien — mit Kursen, Ausflügen und unvergesslichen Erlebnissen für jedes Alter." data-fr="Le Passeport Vacances Morat propose aux écoliers de la région un programme de vacances coloré pendant les vacances d'automne — avec des cours, des sorties et des expériences inoubliables pour chaque âge.">
+        Der Ferienpass Murten bietet Schulkindern der Region ein buntes Ferienprogramm während der Herbstferien — mit Kursen, Ausflügen und unvergesslichen Erlebnissen für jedes Alter.
+      </p>
+      <div class="hero-ctas">
+        <a href="#register" class="btn btn-primary" data-de="🎟️ Jetzt anmelden" data-fr="🎟️ S'inscrire maintenant">🎟️ Jetzt anmelden</a>
+        <a href="#about" class="btn btn-secondary" data-de="Mehr erfahren" data-fr="En savoir plus">Mehr erfahren</a>
+      </div>
+    </div>
+
+    <div class="hero-cards fade-up delay-2">
+      <div class="hero-card accent-sun">
+        <div class="card-icon">📅</div>
+        <div class="card-val">2</div>
+        <div class="card-label" data-de="Wochen Herbstferien" data-fr="Semaines de vacances">Wochen Herbstferien</div>
+      </div>
+      <div class="hero-card accent-clay">
+        <div class="card-icon">💰</div>
+        <div class="card-val">Fr. 40.–</div>
+        <div class="card-label" data-de="Pauschale für alle Kurse" data-fr="Forfait tous les cours">Pauschale für alle Kurse</div>
+      </div>
+      <div class="hero-card accent-leaf">
+        <div class="card-icon">🧒</div>
+        <div class="card-val">3H–11H</div>
+        <div class="card-label" data-de="Klasse 1–9 / alle Altersgruppen" data-fr="Classes 1–9 / tous les âges">Klasse 1–9 / alle Altersgruppen</div>
+      </div>
+      <div class="hero-card accent-sky">
+        <div class="card-icon">📍</div>
+        <div class="card-val">Murten</div>
+        <div class="card-label" data-de="& Umgebungsgemeinden" data-fr="& communes environnantes">& Umgebungsgemeinden</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="section-tag" data-de="Über den Verein" data-fr="À propos de l'association">Über den Verein</div>
+        <h2 data-de="Ein Programm für <em>alle Kinder</em>" data-fr="Un programme pour <em>tous les enfants</em>">Ein Programm für <em>alle Kinder</em></h2>
+        <p data-de="Der Verein Ferienpass Murten hat sich zum Ziel gesetzt, allen Schulkindern von Murten und den beteiligten Gemeinden während der Herbstferien ein abwechslungsreiches Programm zu bieten." data-fr="L'association Passeport Vacances Morat a pour objectif d'offrir à tous les écoliers de Morat et des communes participantes un programme varié pendant les vacances d'automne.">
+          Der Verein Ferienpass Murten hat sich zum Ziel gesetzt, allen Schulkindern von Murten und den beteiligten Gemeinden während der Herbstferien ein abwechslungsreiches Programm zu bieten.
+        </p>
+        <p data-de="Ob Sport, Kreativität, Tierwelt oder kulturelle Erlebnisse — für jedes Kind ist etwas dabei! Das Angebot richtet sich an Schülerinnen und Schüler von der 1. Klasse (3H) bis zur 9. Klasse (11H). Die Kurse werden von engagierten Kursleitenden begleitet." data-fr="Que ce soit le sport, la créativité, le monde animal ou les expériences culturelles — il y en a pour tous les goûts ! L'offre s'adresse aux élèves de la 1ère classe (3H) jusqu'à la 9ème classe (11H). Les cours sont accompagnés d'animateurs engagés.">
+          Ob Sport, Kreativität, Tierwelt oder kulturelle Erlebnisse — für jedes Kind ist etwas dabei! Das Angebot richtet sich an Schülerinnen und Schüler von der 1. Klasse (3H) bis zur 9. Klasse (11H). Die Kurse werden von engagierten Kursleitenden begleitet.
+        </p>
+        <p data-de="Der Ferienpass kostet pauschal Fr. 40.– pro Kind und umfasst alle Kursbesuche während der zwei Ferienpasswochen. Er ist personalisiert, nicht übertragbar und muss bei jedem Kurs vorgezeigt werden." data-fr="Le passeport coûte un forfait de Fr. 40.– par enfant et comprend toutes les visites de cours pendant les deux semaines du passeport. Il est personnalisé, non transmissible et doit être présenté à chaque cours.">
+          Der Ferienpass kostet pauschal Fr. 40.– pro Kind und umfasst alle Kursbesuche während der zwei Ferienpasswochen. Er ist personalisiert, nicht übertragbar und muss bei jedem Kurs vorgezeigt werden.
+        </p>
+      </div>
+
+      <div class="about-highlights">
+        <div class="highlight-item">
+          <div class="hi-icon">🏫</div>
+          <div>
+            <h4 data-de="Für alle Kinder der Region" data-fr="Pour tous les enfants de la région">Für alle Kinder der Region</h4>
+            <p data-de="Schulkinder aus Murten und beteiligten Gemeinden ab der 1. Klasse (3H)" data-fr="Écoliers de Morat et des communes participantes dès la 1ère classe (3H)">Schulkinder aus Murten und beteiligten Gemeinden ab der 1. Klasse (3H)</p>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="hi-icon">📋</div>
+          <div>
+            <h4 data-de="Einfache Online-Anmeldung" data-fr="Inscription en ligne simple">Einfache Online-Anmeldung</h4>
+            <p data-de="Anmeldung über das Onlinesystem «Groople» — bis 10 Kurse pro Kind auswählbar" data-fr="Inscription via le système en ligne «Groople» — jusqu'à 10 cours par enfant sélectionnables">Anmeldung über das Onlinesystem «Groople» — bis 10 Kurse pro Kind auswählbar</p>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="hi-icon">🤝</div>
+          <div>
+            <h4 data-de="Ehrenamtliches Engagement" data-fr="Engagement bénévole">Ehrenamtliches Engagement</h4>
+            <p data-de="Getragen von einem engagierten Vereinsteam und zahlreichen freiwilligen Kursleitenden" data-fr="Soutenu par une équipe associative engagée et de nombreux animateurs bénévoles">Getragen von einem engagierten Vereinsteam und zahlreichen freiwilligen Kursleitenden</p>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="hi-icon">💳</div>
+          <div>
+            <h4 data-de="Pauschalbetrag Fr. 40.–" data-fr="Montant forfaitaire Fr. 40.–">Pauschalbetrag Fr. 40.–</div>
+            <p data-de="Deckt alle Kurse der zwei Ferienwochen ab — keine zusätzlichen Kosten" data-fr="Couvre tous les cours des deux semaines de vacances — sans frais supplémentaires">Deckt alle Kurse der zwei Ferienwochen ab — keine zusätzlichen Kosten</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACTIVITIES -->
+<section id="activities">
+  <div class="section-inner">
+    <div class="section-tag" data-de="Was erwartet euch?" data-fr="Qu'est-ce qui vous attend ?">Was erwartet euch?</div>
+    <h2 data-de="Aktivitäten für <em>jeden Geschmack</em>" data-fr="Activités pour <em>tous les goûts</em>">Aktivitäten für <em>jeden Geschmack</em></h2>
+    <p class="section-intro" data-de="Ob du lieber draussen rumtobst, kreativ bist oder einfach Neues entdecken willst — im Ferienpass-Programm ist für alle etwas dabei!" data-fr="Que tu préfères te défouler dehors, être créatif ou simplement découvrir de nouvelles choses — le programme du Passeport Vacances a quelque chose pour chacun !">
+      Ob du lieber draussen rumtobst, kreativ bist oder einfach Neues entdecken willst — im Ferienpass-Programm ist für alle etwas dabei!
+    </p>
+    <div class="activities-grid">
+      <div class="activity-card sport">
+        <span class="ac-icon">⚽</span>
+        <h3 data-de="Sport" data-fr="Sport">Sport</h3>
+        <p data-de="Fussball, Klettern, Schwimmen, Kampfsport und vieles mehr — für Bewegungsfreudige jeden Alters." data-fr="Football, escalade, natation, arts martiaux et bien plus encore — pour les amateurs de sport de tout âge.">Fussball, Klettern, Schwimmen, Kampfsport und vieles mehr — für Bewegungsfreudige jeden Alters.</p>
+      </div>
+      <div class="activity-card kreativ">
+        <span class="ac-icon">🎨</span>
+        <h3 data-de="Kreativität" data-fr="Créativité">Kreativität</h3>
+        <p data-de="Malen, Basteln, Theater, Musik — hier kann jedes Kind seine kreative Seite entfalten." data-fr="Peinture, bricolage, théâtre, musique — chaque enfant peut y développer son côté créatif.">Malen, Basteln, Theater, Musik — hier kann jedes Kind seine kreative Seite entfalten.</p>
+      </div>
+      <div class="activity-card natur">
+        <span class="ac-icon">🐾</span>
+        <h3 data-de="Natur & Tiere" data-fr="Nature & Animaux">Natur & Tiere</h3>
+        <p data-de="Tierbesuche, Naturerlebnisse, Bauernhöfe — Begegnungen mit der Tierwelt und der Natur." data-fr="Visites d'animaux, expériences dans la nature, fermes — des rencontres avec le monde animal et la nature.">Tierbesuche, Naturerlebnisse, Bauernhöfe — Begegnungen mit der Tierwelt und der Natur.</p>
+      </div>
+      <div class="activity-card spiel">
+        <span class="ac-icon">🎮</span>
+        <h3 data-de="Spiel & Spass" data-fr="Jeux & Plaisir">Spiel & Spass</h3>
+        <p data-de="Gesellschaftsspiele, Schnitzeljagden, Rollenspiele und jede Menge Abenteuer!" data-fr="Jeux de société, chasses au trésor, jeux de rôle et plein d'aventures !">Gesellschaftsspiele, Schnitzeljagden, Rollenspiele und jede Menge Abenteuer!</p>
+      </div>
+      <div class="activity-card event">
+        <span class="ac-icon">🎪</span>
+        <h3 data-de="Events & Ausflüge" data-fr="Événements & Sorties">Events & Ausflüge</h3>
+        <p data-de="Besondere Veranstaltungen, Besuche von Betrieben, kulturelle Ausflüge — unvergessliche Erlebnisse." data-fr="Événements spéciaux, visites d'entreprises, sorties culturelles — des expériences inoubliables.">Besondere Veranstaltungen, Besuche von Betrieben, kulturelle Ausflüge — unvergessliche Erlebnisse.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="section-inner">
+    <div class="section-tag" data-de="Ablauf" data-fr="Déroulement">Ablauf</div>
+    <h2 data-de="So einfach <em>funktioniert's</em>" data-fr="C'est aussi simple <em>que ça</em>">So einfach <em>funktioniert's</em></h2>
+    <p class="section-intro" data-de="In wenigen Schritten zur perfekten Herbstferienplanung für dein Kind." data-fr="En quelques étapes pour planifier les vacances d'automne parfaites pour votre enfant.">In wenigen Schritten zur perfekten Herbstferienplanung für dein Kind.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3 data-de="Kursangebot anschauen" data-fr="Consulter l'offre de cours">Kursangebot anschauen</h3>
+        <p data-de="Stöbere durch das vielfältige Kursangebot für Primarschüler (3H–8H) und Teenies (9H–11H)." data-fr="Parcourez l'offre de cours variée pour les élèves du primaire (3H–8H) et les ados (9H–11H).">Stöbere durch das vielfältige Kursangebot für Primarschüler (3H–8H) und Teenies (9H–11H).</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3 data-de="Online registrieren" data-fr="S'inscrire en ligne">Online registrieren</h3>
+        <p data-de="Registriere dein Kind Ende August im Onlinesystem «Groople». Trage Abwesenheiten ein und wähle bis zu 10 Kurse nach Prioritäten aus." data-fr="Inscrivez votre enfant fin août dans le système en ligne «Groople». Saisissez les absences et sélectionnez jusqu'à 10 cours par ordre de priorité.">Registriere dein Kind Ende August im Onlinesystem «Groople». Trage Abwesenheiten ein und wähle bis zu 10 Kurse nach Prioritäten aus.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3 data-de="Zuteilung erhalten" data-fr="Recevoir l'attribution">Zuteilung erhalten</h3>
+        <p data-de="Nach Ablauf der Anmeldefrist (ca. 19. September) wird die Kurszuteilung vom System vorgenommen. Du erhältst eine E-Mail mit dem persönlichen Ferienpass." data-fr="Après la clôture des inscriptions (environ 19 septembre), les cours sont attribués par le système. Vous recevrez un e-mail avec le passeport personnel.">Nach Ablauf der Anmeldefrist (ca. 19. September) wird die Kurszuteilung vom System vorgenommen. Du erhältst eine E-Mail mit dem persönlichen Ferienpass.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3 data-de="Bezahlen" data-fr="Payer">Bezahlen</h3>
+        <p data-de="Überweise pauschal Fr. 40.– per E-Banking. Die Bankangaben erhältst du per E-Mail nach der Anmeldung." data-fr="Versez le forfait de Fr. 40.– par e-banking. Les coordonnées bancaires vous seront envoyées par e-mail après l'inscription.">Überweise pauschal Fr. 40.– per E-Banking. Die Bankangaben erhältst du per E-Mail nach der Anmeldung.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <h3 data-de="Ferienpass ausdrucken" data-fr="Imprimer le passeport">Ferienpass ausdrucken</h3>
+        <p data-de="Drucke deinen persönlichen Ferienpass aus und bring ihn zu jedem Kurs mit. Er ist nicht übertragbar." data-fr="Imprimez votre passeport personnel et apportez-le à chaque cours. Il n'est pas transmissible.">Drucke deinen persönlichen Ferienpass aus und bring ihn zu jedem Kurs mit. Er ist nicht übertragbar.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">6</div>
+        <h3 data-de="Spass haben!" data-fr="S'amuser !">Spass haben!</h3>
+        <p data-de="Los geht's — zwei tolle Wochen mit neuen Freunden, spannenden Kursen und unvergesslichen Momenten!" data-fr="C'est parti — deux semaines formidables avec de nouveaux amis, des cours passionnants et des moments inoubliables !">Los geht's — zwei tolle Wochen mit neuen Freunden, spannenden Kursen und unvergesslichen Momenten!</p>
+      </div>
+    </div>
+
+    <div style="margin-top: 2.5rem; padding: 1.5rem 2rem; background: var(--light-grey); border-radius: var(--radius); border-left: 4px solid var(--sky);">
+      <strong data-de="💡 Tipp: Persönliche Anmeldehilfe" data-fr="💡 Conseil : aide à l'inscription personnelle">💡 Tipp: Persönliche Anmeldehilfe</strong><br>
+      <span data-de="Wir helfen gerne bei der Anmeldung. Du kannst uns an der Primarschule Murten, Längmatt 4–6, 1. Stock (hinter dem Sekretariat) besuchen. Die genauen Termine findest du auf dieser Seite." data-fr="Nous sommes heureux d'aider à l'inscription. Vous pouvez nous rendre visite à l'école primaire de Morat, Längmatt 4–6, 1er étage (derrière le secrétariat). Les dates exactes sont disponibles sur cette page.">Wir helfen gerne bei der Anmeldung. Du kannst uns an der Primarschule Murten, Längmatt 4–6, 1. Stock (hinter dem Sekretariat) besuchen. Die genauen Termine findest du auf dieser Seite.</span>
+    </div>
+  </div>
+</section>
+
+<!-- INFO & PRICES -->
+<section id="info">
+  <div class="section-inner">
+    <div class="section-tag" style="color: var(--sun);" data-de="Wichtige Informationen" data-fr="Informations importantes">Wichtige Informationen</div>
+    <h2 data-de="Infos &amp; <em>Preise</em>" data-fr="Infos &amp; <em>Prix</em>">Infos &amp; <em>Preise</em></h2>
+    <p class="section-intro" style="color:rgba(255,255,255,0.65);" data-de="Alles was du wissen musst — kompakt zusammengefasst." data-fr="Tout ce que vous devez savoir — résumé de façon compacte.">Alles was du wissen musst — kompakt zusammengefasst.</p>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <span class="ic-icon">📅</span>
+        <h3 data-de="Wann?" data-fr="Quand ?">Wann?</h3>
+        <p data-de="Der Ferienpass findet während der <strong>zwei Wochen Herbstferien</strong> statt. Die genauen Daten werden jeweils rechtzeitig auf dieser Website bekanntgegeben." data-fr="Le Passeport Vacances se déroule pendant les <strong>deux semaines de vacances d'automne</strong>. Les dates exactes sont communiquées en temps voulu sur ce site.">Der Ferienpass findet während der <strong>zwei Wochen Herbstferien</strong> statt. Die genauen Daten werden jeweils rechtzeitig auf dieser Website bekanntgegeben.</p>
+      </div>
+      <div class="info-card">
+        <span class="ic-icon">👦</span>
+        <h3 data-de="Für wen?" data-fr="Pour qui ?">Für wen?</h3>
+        <p data-de="Für alle Schulkinder der <strong>1. Klasse (3H) bis 9. Klasse (11H)</strong> aus Murten und den beteiligten Gemeinden. Das Alter während dem Ferienpass ist massgebend." data-fr="Pour tous les écoliers de la <strong>1ère classe (3H) à la 9ème classe (11H)</strong> de Morat et des communes participantes. L'âge pendant le Passeport Vacances est déterminant.">Für alle Schulkinder der <strong>1. Klasse (3H) bis 9. Klasse (11H)</strong> aus Murten und den beteiligten Gemeinden. Das Alter während dem Ferienpass ist massgebend.</p>
+      </div>
+      <div class="info-card">
+        <span class="ic-icon">📝</span>
+        <h3 data-de="Anmeldephase" data-fr="Phase d'inscription">Anmeldephase</h3>
+        <p data-de="Die Anmeldung ist <strong>Ende August</strong> über das Onlinesystem «Groople» möglich. Pro Kind können bis zu <strong>10 Kurse</strong> nach Priorität gewählt werden. Keine Eile — wer schneller klickt, hat keinen Vorteil!" data-fr="L'inscription est possible <strong>fin août</strong> via le système en ligne «Groople». Jusqu'à <strong>10 cours</strong> peuvent être choisis par ordre de priorité. Pas de précipitation — cliquer plus vite n'est pas un avantage !">Die Anmeldung ist <strong>Ende August</strong> über das Onlinesystem «Groople» möglich. Pro Kind können bis zu <strong>10 Kurse</strong> nach Priorität gewählt werden. Keine Eile — wer schneller klickt, hat keinen Vorteil!</p>
+      </div>
+      <div class="info-card">
+        <span class="ic-icon">🔄</span>
+        <h3 data-de="Restplatzbörse" data-fr="Bourse de places restantes">Restplatzbörse</h3>
+        <p data-de="Nach der regulären Zuteilung findet Ende September eine Restplatzbörse statt. Dort können noch freie Kursplätze belegt werden — hier gilt: <strong>wer schneller ist, bekommt den Platz</strong>." data-fr="Après l'attribution régulière, une bourse de places restantes a lieu fin septembre. Des places de cours encore libres peuvent y être réservées — ici : <strong>premier arrivé, premier servi</strong>.">Nach der regulären Zuteilung findet Ende September eine Restplatzbörse statt. Dort können noch freie Kursplätze belegt werden — hier gilt: <strong>wer schneller ist, bekommt den Platz</strong>.</p>
+      </div>
+      <div class="info-card">
+        <span class="ic-icon">🎟️</span>
+        <h3 data-de="Der Ferienpass" data-fr="Le Passeport">Der Ferienpass</h3>
+        <p data-de="Nach der Zuteilung erhältst du deinen <strong>persönlichen Ferienpass per E-Mail</strong>. Diesen kannst du selbst ausdrucken. Er ist personalisiert und <strong>nicht übertragbar</strong> — und muss bei jedem Kurs vorgezeigt werden." data-fr="Après l'attribution, tu reçois ton <strong>passeport personnel par e-mail</strong>. Tu peux l'imprimer toi-même. Il est personnalisé et <strong>non transmissible</strong> — et doit être présenté à chaque cours.">Nach der Zuteilung erhältst du deinen <strong>persönlichen Ferienpass per E-Mail</strong>. Diesen kannst du selbst ausdrucken. Er ist personalisiert und <strong>nicht übertragbar</strong> — und muss bei jedem Kurs vorgezeigt werden.</p>
+      </div>
+      <div class="info-card">
+        <span class="ic-icon">📞</span>
+        <h3 data-de="Hotline" data-fr="Hotline">Hotline</h3>
+        <p data-de="Während dem Ferienpass ist eine Hotline erreichbar: <strong>077 522 51 91</strong>. Ausserhalb der Ferienpasszeit erreichst du uns per E-Mail." data-fr="Pendant le Passeport Vacances, une hotline est joignable : <strong>077 522 51 91</strong>. En dehors du Passeport Vacances, contactez-nous par e-mail.">Während dem Ferienpass ist eine Hotline erreichbar: <strong>077 522 51 91</strong>. Ausserhalb der Ferienpasszeit erreichst du uns per E-Mail.</p>
+      </div>
+    </div>
+
+    <div class="price-highlight">
+      <div class="ph-amount">Fr. 40.–</div>
+      <div class="ph-text">
+        <h3 data-de="Pauschale für den gesamten Ferienpass" data-fr="Forfait pour l'ensemble du Passeport Vacances">Pauschale für den gesamten Ferienpass</h3>
+        <p data-de="Ein einziger Betrag deckt alle Kursbesuche während der zwei Ferienpasswochen ab. Bezahlung per E-Banking nach erfolgter Anmeldung." data-fr="Un seul montant couvre toutes les visites de cours pendant les deux semaines du Passeport Vacances. Paiement par e-banking après inscription.">Ein einziger Betrag deckt alle Kursbesuche während der zwei Ferienpasswochen ab. Bezahlung per E-Banking nach erfolgter Anmeldung.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGISTRATION -->
+<section id="register">
+  <div class="section-inner">
+    <div class="section-tag" style="color:var(--sun);" data-de="Anmeldung" data-fr="Inscription">Anmeldung</div>
+    <h2 data-de="Jetzt <em>anmelden!</em>" data-fr="Inscrivez-vous <em>maintenant !</em>">Jetzt <em>anmelden!</em></h2>
+    <p class="section-intro" data-de="Die Anmeldung für den Ferienpass erfolgt über das Onlinesystem «Groople». Registriere dich Ende August und wähle deine Lieblingskurse." data-fr="L'inscription au Passeport Vacances se fait via le système en ligne «Groople». Inscrivez-vous fin août et choisissez vos cours préférés.">
+      Die Anmeldung für den Ferienpass erfolgt über das Onlinesystem «Groople». Registriere dich Ende August und wähle deine Lieblingskurse.
+    </p>
+
+    <div class="reg-steps">
+      <div class="reg-step">
+        <div class="rs-num">1</div>
+        <h4 data-de="AGB lesen" data-fr="Lire les CGU">AGB lesen</h4>
+        <p data-de="Lies zuerst die Allgemeinen Geschäftsbedingungen aufmerksam durch." data-fr="Lisez d'abord attentivement les conditions générales d'utilisation.">Lies zuerst die Allgemeinen Geschäftsbedingungen aufmerksam durch.</p>
+      </div>
+      <div class="reg-step">
+        <div class="rs-num">2</div>
+        <h4 data-de="Grüner Login-Button" data-fr="Bouton login vert">Grüner Login-Button</h4>
+        <p data-de="Klicke auf den grünen LOG-IN-Button — damit akzeptierst du die AGB und wirst zu «Groople» weitergeleitet." data-fr="Cliquez sur le bouton LOG-IN vert — cela accepte les CGU et vous redirige vers «Groople».">Klicke auf den grünen LOG-IN-Button — damit akzeptierst du die AGB und wirst zu «Groople» weitergeleitet.</p>
+      </div>
+      <div class="reg-step">
+        <div class="rs-num">3</div>
+        <h4 data-de="Abwesenheiten eintragen" data-fr="Saisir les absences">Abwesenheiten eintragen</h4>
+        <p data-de="Grün = verfügbar, Rot = abwesend. So werden dir nur passende Kurse angezeigt." data-fr="Vert = disponible, Rouge = absent. Ainsi, seuls les cours compatibles vous sont affichés.">Grün = verfügbar, Rot = abwesend. So werden dir nur passende Kurse angezeigt.</p>
+      </div>
+      <div class="reg-step">
+        <div class="rs-num">4</div>
+        <h4 data-de="Kurse priorisieren" data-fr="Prioriser les cours">Kurse priorisieren</h4>
+        <p data-de="Wähle bis zu 10 Kurse und ordne sie nach Priorität. Du kannst bis zum 19. September Änderungen vornehmen." data-fr="Choisissez jusqu'à 10 cours et classez-les par priorité. Vous pouvez effectuer des modifications jusqu'au 19 septembre.">Wähle bis zu 10 Kurse und ordne sie nach Priorität. Du kannst bis zum 19. September Änderungen vornehmen.</p>
+      </div>
+    </div>
+
+    <div class="reg-cta">
+      <a href="https://www.ferienpass-murten.ch" target="_blank" class="btn btn-white" style="font-size:1rem; padding: 16px 36px;">
+        <span data-de="🎟️ Zur Anmeldung (Groople)" data-fr="🎟️ Vers l'inscription (Groople)">🎟️ Zur Anmeldung (Groople)</span>
+      </a>
+      <p class="reg-note" data-de="Die Anmeldung ist Ende August freigeschaltet. Ausserhalb dieser Periode ist das System geschlossen." data-fr="L'inscription est ouverte fin août. En dehors de cette période, le système est fermé.">
+        Die Anmeldung ist Ende August freigeschaltet. Ausserhalb dieser Periode ist das System geschlossen.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY 2025 -->
+<section id="gallery">
+  <div class="section-inner">
+    <div class="section-tag" data-de="Rückblick" data-fr="Rétrospective">Rückblick</div>
+    <h2 data-de="Galerie <em>Ferienpass 2025</em>" data-fr="Galerie <em>Passeport Vacances 2025</em>">Galerie <em>Ferienpass 2025</em></h2>
+    <p class="section-intro" data-de="Impressionen aus zwei unvergesslichen Wochen — Sport, Kreativität, Natur und jede Menge Spass!" data-fr="Impressions de deux semaines inoubliables — sport, créativité, nature et beaucoup de plaisir !">
+      Impressionen aus zwei unvergesslichen Wochen — Sport, Kreativität, Natur und jede Menge Spass!
+    </p>
+
+    <!-- Filter buttons -->
+    <div class="gallery-filters">
+      <button class="filter-btn active" data-filter="all" data-de="Alle" data-fr="Tous">Alle</button>
+      <button class="filter-btn" data-filter="sport" data-de="⚽ Sport" data-fr="⚽ Sport">⚽ Sport</button>
+      <button class="filter-btn" data-filter="kreativ" data-de="🎨 Kreativität" data-fr="🎨 Créativité">🎨 Kreativität</button>
+      <button class="filter-btn" data-filter="natur" data-de="🐾 Natur & Tiere" data-fr="🐾 Nature & Animaux">🐾 Natur & Tiere</button>
+      <button class="filter-btn" data-filter="spiel" data-de="🎮 Spiel & Spass" data-fr="🎮 Jeux & Plaisir">🎮 Spiel & Spass</button>
+      <button class="filter-btn" data-filter="event" data-de="🎪 Events" data-fr="🎪 Événements">🎪 Events</button>
+    </div>
+
+    <!-- Gallery grid -->
+    <div class="gallery-grid" id="galleryGrid">
+
+      <!-- =====================================================================
+           ANLEITUNG: Ersetze die Platzhalter unten durch deine eigenen Fotos!
+           Lege deine Bilder in einen Ordner "photos/" neben der index.html ab.
+           Beispiel: <img src="photos/kurs-bogenschiessen.jpg" ...>
+           Kategorien: sport | kreativ | natur | spiel | event
+           ===================================================================== -->
+
+      <div class="gallery-item" data-cat="sport" onclick="openLightbox(0)">
+        <img src="photos/sport-01.jpg" onerror="this.parentElement.classList.add('img-missing')" alt="Ferienpass Murten 2025 – Sport">
+        <div class="gi-overlay"><span class="gi-caption" data-de="Sport & Bewegung" data-fr="Sport & Mouvement">Sport & Bewegung</span></div>
+        <div class="gi-zoom">🔍</div>
+      </div>
+
+      <div class="gallery-item" data-cat="kreativ" onclick="openLightbox(1)">
+        <img src="photos/kreativ-01.jpg" onerror="this.parentElement.classList.add('img-missing')" alt="Ferienpass Murten 2025 – Kreativität">
+        <div class="gi-overlay"><span class="gi-caption" data-de="Kreativ-Workshop" data-fr="Atelier créatif">Kreativ-Workshop</span></div>
+        <div class="gi-zoom">🔍</div>
+      </div>
+
+      <div class="gallery-item" data-cat="natur" onclick="openLightbox(2)">
+        <img src="photos/natur-01.jpg" onerror="this.parentElement.classList.add('img-missing')" alt="Ferienpass Murten 2025 – Natur">
+        <div class="gi-overlay"><span class="gi-caption" data-de="Natur erleben" data-fr="Découvrir la nature">Natur erleben</span></div>
+        <div class="gi-zoom">🔍</div>
+      </div>
+
+      <div class="gallery-item" data-cat="spiel" onclick="openLightbox(3)">
+        <img src="photos/spiel-01.jpg" onerror="this.parentElement.classList.add('img-missing')" alt="Ferienpass Murten 2025 – Spiel">
+        <div class="gi-overlay"><span class="gi-caption" data-de="Spiel & Spass" data-fr="Jeux & Plaisir">Spiel & Spass</span></div>
+        <div class="gi-zoom">🔍</div>
+      </div>
+
+      <div class="gallery-item" data-cat="event" onclick="openLightbox(4)">
+        <img src="photos/event-01.jpg" onerror="this.parentElement.classList.add('img-missing')" alt="Ferienpass Murten 2025 – Event">
+        <div class="gi-overlay"><span class="gi-caption" data-de="Besonderer Ausflug" data-fr="Sortie spéciale">Besonderer Ausflug</span></div>
+        <div class="gi-zoom">🔍</div>
+      </div>
+
+      <div class="gallery-item" data-cat="sport" onclick="openLightbox(5)">
+        <img src="photos/sport-02.jpg" onerror="this.parentElement.classList.add('img-missing')" alt="Ferienpass Murten 2025 – Sport">
+        <div class="gi-overlay"><span class="gi-caption" data-de="Klettern & Kräfte messen" data-fr="Escalade & défis">Klettern & Kräfte messen</span></div>
+        <div class="gi-zoom">🔍</div>
+      </div>
+
+      <div class="gallery-item" data-cat="kreativ" onclick="openLightbox(6)">
+        <img src="photos/kreativ-02.jpg" onerror="this.parentElement.classList.add('img-missing')" alt="Ferienpass Murten 2025 – Kreativität">
+        <div class="gi-overlay"><span class="gi-caption" data-de="Malen & Gestalten" data-fr="Peindre & créer">Malen & Gestalten</span></div>
+        <div class="gi-zoom">🔍</div>
+      </div>
+
+      <div class="gallery-item" data-cat="natur" onclick="openLightbox(7)">
+        <img src="photos/natur-02.jpg" onerror="this.parentElement.classList.add('img-missing')" alt="Ferienpass Murten 2025 – Tiere">
+        <div class="gi-overlay"><span class="gi-caption" data-de="Begegnung mit Tieren" data-fr="Rencontre avec les animaux">Begegnung mit Tieren</span></div>
+        <div class="gi-zoom">🔍</div>
+      </div>
+
+      <div class="gallery-item" data-cat="event" onclick="openLightbox(8)">
+        <img src="photos/event-02.jpg" onerror="this.parentElement.classList.add('img-missing')" alt="Ferienpass Murten 2025 – Ausflug">
+        <div class="gi-overlay"><span class="gi-caption" data-de="Gemeinsam unterwegs" data-fr="En balade ensemble">Gemeinsam unterwegs</span></div>
+        <div class="gi-zoom">🔍</div>
+      </div>
+
+      <div class="gallery-item" data-cat="spiel" onclick="openLightbox(9)">
+        <img src="photos/spiel-02.jpg" onerror="this.parentElement.classList.add('img-missing')" alt="Ferienpass Murten 2025 – Spiel">
+        <div class="gi-overlay"><span class="gi-caption" data-de="Teamspiele & Abenteuer" data-fr="Jeux d'équipe & aventure">Teamspiele & Abenteuer</span></div>
+        <div class="gi-zoom">🔍</div>
+      </div>
+
+      <div class="gallery-item" data-cat="sport" onclick="openLightbox(10)">
+        <img src="photos/sport-03.jpg" onerror="this.parentElement.classList.add('img-missing')" alt="Ferienpass Murten 2025 – Sport">
+        <div class="gi-overlay"><span class="gi-caption" data-de="Wasserspass" data-fr="Plaisirs aquatiques">Wasserspass</span></div>
+        <div class="gi-zoom">🔍</div>
+      </div>
+
+      <div class="gallery-item" data-cat="kreativ" onclick="openLightbox(11)">
+        <img src="photos/kreativ-03.jpg" onerror="this.parentElement.classList.add('img-missing')" alt="Ferienpass Murten 2025 – Theater">
+        <div class="gi-overlay"><span class="gi-caption" data-de="Theater & Auftritt" data-fr="Théâtre & représentation">Theater & Auftritt</span></div>
+        <div class="gi-zoom">🔍</div>
+      </div>
+
+    </div><!-- /.gallery-grid -->
+
+    <!-- Info note -->
+    <div class="gallery-note">
+      <strong data-de="📸 Eigene Fotos hinzufügen:" data-fr="📸 Ajouter vos propres photos :">📸 Eigene Fotos hinzufügen:</strong>
+      <span data-de=" Lege deine Ferienpass-Fotos in einen Ordner namens <code style='background:rgba(255,255,255,0.1);padding:2px 6px;border-radius:4px;'>photos/</code> neben dieser HTML-Datei ab und benenne sie entsprechend (z.B. <code style='background:rgba(255,255,255,0.1);padding:2px 6px;border-radius:4px;'>sport-01.jpg</code>). Mehr Fotos lassen sich einfach durch Kopieren eines &lt;div class=&quot;gallery-item&quot;&gt; Blocks im HTML hinzufügen." data-fr=" Placez vos photos du Passeport Vacances dans un dossier nommé <code style='background:rgba(255,255,255,0.1);padding:2px 6px;border-radius:4px;'>photos/</code> à côté de ce fichier HTML et nommez-les en conséquence (par ex. <code style='background:rgba(255,255,255,0.1);padding:2px 6px;border-radius:4px;'>sport-01.jpg</code>). D'autres photos peuvent être ajoutées facilement en copiant un bloc &lt;div class=&quot;gallery-item&quot;&gt; dans le HTML."> Lege deine Ferienpass-Fotos in einen Ordner namens <code style="background:rgba(255,255,255,0.1);padding:2px 6px;border-radius:4px;">photos/</code> neben dieser HTML-Datei ab und benenne sie entsprechend (z.B. <code style="background:rgba(255,255,255,0.1);padding:2px 6px;border-radius:4px;">sport-01.jpg</code>). Mehr Fotos lassen sich einfach durch Kopieren eines &lt;div class="gallery-item"&gt; Blocks im HTML hinzufügen.</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightboxOnBackdrop(event)">
+  <button class="lb-close" onclick="closeLightbox()">✕</button>
+  <button class="lb-prev" onclick="navigateLightbox(-1)">‹</button>
+  <button class="lb-next" onclick="navigateLightbox(1)">›</button>
+  <img id="lightboxImg" src="" alt="">
+  <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="section-tag" data-de="Kontakt" data-fr="Contact">Kontakt</div>
+        <h2 data-de="Hast du <em>Fragen?</em>" data-fr="Des <em>questions ?</em>">Hast du <em>Fragen?</em></h2>
+        <p data-de="Wir freuen uns über deine Nachricht! Bei Fragen, Unklarheiten oder Problemen zögere nicht, uns zu kontaktieren. Ausserhalb der Ferienpasszeit antworten wir per E-Mail, während dem Ferienpass ist eine Hotline erreichbar." data-fr="Nous sommes heureux de recevoir votre message ! En cas de questions, d'imprécisions ou de problèmes, n'hésitez pas à nous contacter. En dehors de la période du Passeport Vacances, nous répondons par e-mail, pendant le Passeport Vacances une hotline est joignable.">
+          Wir freuen uns über deine Nachricht! Bei Fragen, Unklarheiten oder Problemen zögere nicht, uns zu kontaktieren. Ausserhalb der Ferienpasszeit antworten wir per E-Mail, während dem Ferienpass ist eine Hotline erreichbar.
+        </p>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="ci-icon sun">✉️</div>
+            <div class="ci-text">
+              <h4 data-de="E-Mail (Deutsch)" data-fr="E-mail (Allemand)">E-Mail (Deutsch)</h4>
+              <a href="/cdn-cgi/l/email-protection#3e575058517e585b4c575b504e5f4d4d13534b4c4a5b50105d56"><span class="__cf_email__" data-cfemail="8ce5e2eae3cceae9fee5e9e2fcedffffa1e1f9fef8e9e2a2efe4">[email&#160;protected]</span></a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon sky">✉️</div>
+            <div class="ci-text">
+              <h4 data-de="E-Mail (Français)" data-fr="E-mail (Français)">E-Mail (Français)</h4>
+              <a href="/cdn-cgi/l/email-protection#335a5d555c734352404056435c41471e455250525d5056401e5e5c4152471d505b"><span class="__cf_email__" data-cfemail="81e8efe7eec1f1e0f2f2e4f1eef3f5acf7e0e2e0efe2e4f2aceceef3e0f5afe2e9">[email&#160;protected]</span></a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon leaf">📞</div>
+            <div class="ci-text">
+              <h4 data-de="Hotline (nur während Ferienpass)" data-fr="Hotline (uniquement pendant le Passeport)">Hotline (nur während Ferienpass)</h4>
+              <a href="tel:0775225191">077 522 51 91</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon sun">📍</div>
+            <div class="ci-text">
+              <h4 data-de="Anmelde-Hilfe vor Ort" data-fr="Aide à l'inscription sur place">Anmelde-Hilfe vor Ort</h4>
+              <span data-de="Primarschule Murten, Längmatt 4–6, 1. Stock" data-fr="École primaire Morat, Längmatt 4–6, 1er étage">Primarschule Murten, Längmatt 4–6, 1. Stock</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="supporters-box">
+        <h3 data-de="Mitmachen &amp; Unterstützen" data-fr="Participer &amp; Soutenir">Mitmachen &amp; Unterstützen</h3>
+        <p data-de="Kannst du dir vorstellen, beim Ferienpass mitzumachen? Als Kursleiterin oder Kursleiter, Sponsor oder freiwillige Helferin? Wir freuen uns über jede Unterstützung! Zögere nicht, uns zu kontaktieren — mehr Informationen findest du auch unter den Kontaktadressen oben." data-fr="Pouvez-vous imaginer de rejoindre le Passeport Vacances ? Comme animateur ou animatrice, sponsor ou bénévole ? Nous sommes heureux de tout soutien ! N'hésitez pas à nous contacter — plus d'informations également aux adresses de contact ci-dessus.">
+          Kannst du dir vorstellen, beim Ferienpass mitzumachen? Als Kursleiterin oder Kursleiter, Sponsor oder freiwillige Helferin? Wir freuen uns über jede Unterstützung! Zögere nicht, uns zu kontaktieren — mehr Informationen findest du auch unter den Kontaktadressen oben.
+        </p>
+        <div>
+          <span class="supporter-badge" data-de="🏃 Kursleitung" data-fr="🏃 Animateur/trice">🏃 Kursleitung</span>
+          <span class="supporter-badge" data-de="💼 Sponsor" data-fr="💼 Sponsor">💼 Sponsor</span>
+          <span class="supporter-badge" data-de="🤝 Freiwillig helfen" data-fr="🤝 Bénévole">🤝 Freiwillig helfen</span>
+          <span class="supporter-badge" data-de="🏢 Betrieb besuchen lassen" data-fr="🏢 Ouvrir mon entreprise">🏢 Betrieb besuchen lassen</span>
+        </div>
+
+        <div style="margin-top: 2rem; padding: 1.5rem; background: var(--cream); border-radius: 14px;">
+          <strong style="font-family: var(--font-head); font-size: 1rem;" data-de="Treffen für Interessierte" data-fr="Réunions pour les intéressés">Treffen für Interessierte</strong><br>
+          <p style="font-size:0.85rem; color:var(--mid); margin-top: 0.4rem; line-height:1.7;" data-de="Jeweils mittwochs und freitags von 09:00–10:30 Uhr im Hotel Murten treffen wir uns, um potenzielle neue Mitwirkende willkommen zu heissen. Schau einfach vorbei!" data-fr="Chaque mercredi et vendredi de 09h00 à 10h30 à l'Hôtel Murten, nous nous réunissons pour accueillir de nouveaux collaborateurs potentiels. Venez simplement nous rendre visite !">Jeweils mittwochs und freitags von 09:00–10:30 Uhr im Hotel Murten treffen wir uns, um potenzielle neue Mitwirkende willkommen zu heissen. Schau einfach vorbei!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <strong>Ferienpass Murten | Passeport Vacances Morat</strong><br>
+  <span data-de="© 2025 Verein Ferienpass Murten. Alle Rechte vorbehalten." data-fr="© 2025 Association Passeport Vacances Morat. Tous droits réservés.">© 2025 Verein Ferienpass Murten. Alle Rechte vorbehalten.</span>
+  <div class="footer-links">
+    <a href="/cdn-cgi/l/email-protection#cda4a3aba28daba8bfa4a8a3bdacbebee0a0b8bfb9a8a3e3aea5"><span class="__cf_email__" data-cfemail="e881868e87a88e8d9a818d8698899b9bc5859d9a9c8d86c68b80">[email&#160;protected]</span></a>
+    <a href="/cdn-cgi/l/email-protection#0960676f664979687a7a6c79667b7d247f686a68676a6c7a2464667b687d276a61"><span class="__cf_email__" data-cfemail="cda4a3aba28dbdacbebea8bda2bfb9e0bbacaeaca3aea8bee0a0a2bfacb9e3aea5">[email&#160;protected]</span></a>
+    <a href="#hero" data-de="Zurück nach oben" data-fr="Retour en haut">↑ <span data-de="Zurück nach oben" data-fr="Retour en haut">Zurück nach oben</span></a>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // ===================== LANGUAGE SWITCH =====================
+  let currentLang = 'de';
+
+  function setLang(lang) {
+    currentLang = lang;
+    document.documentElement.lang = lang;
+
+    // Update all elements with data-de / data-fr
+    document.querySelectorAll('[data-de]').forEach(el => {
+      const txt = el.getAttribute('data-' + lang);
+      if (!txt) return;
+      // Use innerHTML so HTML tags like <em> and <strong> are preserved
+      el.innerHTML = txt;
+    });
+
+    // Update lang buttons
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.textContent.trim().toLowerCase() === lang);
+    });
+  }
+
+  // ===================== MOBILE MENU =====================
+  function toggleMenu() {
+    const m = document.getElementById('mobileMenu');
+    m.classList.toggle('open');
+  }
+
+  // Close mobile menu on outside click
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('mobileMenu');
+    const hamburger = document.querySelector('.hamburger');
+    if (menu.classList.contains('open') && !menu.contains(e.target) && !hamburger.contains(e.target))) {
+      menu.classList.remove('open');
+    }
+  });
+
+  // ===================== GALLERY FILTER =====================
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.gallery-item').forEach(item => {
+        const show = filter === 'all' || item.dataset.cat === filter;
+        item.style.display = show ? '' : 'none';
+      });
+    });
+  });
+
+  // ===================== LIGHTBOX =====================
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  let currentLbIndex = 0;
+
+  function openLightbox(index) {
+    currentLbIndex = index;
+    updateLightbox();
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function updateLightbox() {
+    const item = galleryItems[currentLbIndex];
+    if (!item) return;
+    const img = item.querySelector('img');
+    const caption = item.querySelector('.gi-caption');
+    document.getElementById('lightboxImg').src = img ? img.src : '';
+    document.getElementById('lightboxCaption').textContent = caption ? caption.textContent : '';
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function closeLightboxOnBackdrop(e) {
+    if (e.target === document.getElementById('lightbox')) closeLightbox();
+  }
+
+  function navigateLightbox(dir) {
+    currentLbIndex = (currentLbIndex + dir + galleryItems.length) % galleryItems.length;
+    updateLightbox();
+  }
+
+  document.addEventListener('keydown', e => {
+    if (!document.getElementById('lightbox').classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') navigateLightbox(1);
+    if (e.key === 'ArrowLeft') navigateLightbox(-1);
+  });
+
+  // Replace broken images with placeholder
+  document.querySelectorAll('.gallery-item img').forEach(img => {
+    img.addEventListener('error', () => {
+      const item = img.closest('.gallery-item');
+      const fname = img.src.split('/').pop();
+      item.innerHTML = `<div class="gallery-placeholder"><span class="gp-icon">📷</span><span>Foto einfügen<br><small>${fname}</small></span></div>`;
+      item.style.cursor = 'default';
+      item.onclick = null;
+    });
+  });
+
+  // ===================== SCROLL ANIMATIONS =====================
+  const scrollObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.activity-card, .step, .info-card, .reg-step, .highlight-item, .contact-item, .gallery-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    scrollObserver.observe(el);
+  });
+</script>
+</body>
+</html>
