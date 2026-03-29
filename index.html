@@ -1,126 +1,1281 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ferienpass Murten | Passeport Vacances Morat</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .lang-fr { display: none; } /* Französisch standardmäßig verstecken */
-        .active-lang { font-weight: bold; text-decoration: underline; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ferienpass Murten | Passeport Vacances Morat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sun: #F5A623;
+      --sky: #2A6EBB;
+      --leaf: #4BAE6A;
+      --clay: #D0673A;
+      --cream: #FDF7EE;
+      --dark: #1A1A2E;
+      --mid: #5A4A3A;
+      --light-grey: #F0EBE3;
+      --white: #ffffff;
+      --radius: 20px;
+      --font-head: 'Fraunces', Georgia, serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--cream);
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    /* ============ HEADER / NAV ============ */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(253, 247, 238, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 2px solid var(--sun);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 42px; height: 42px;
+      background: var(--sun);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .logo-text strong {
+      font-family: var(--font-head);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .logo-text span {
+      font-size: 0.65rem;
+      color: var(--mid);
+      font-weight: 300;
+      letter-spacing: 0.04em;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 0.2rem;
+    }
+
+    nav a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--dark);
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 20px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    nav a:hover {
+      background: var(--sun);
+      color: var(--white);
+    }
+
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      background: var(--light-grey);
+      border-radius: 30px;
+      padding: 3px;
+      gap: 2px;
+      margin-left: 1rem;
+    }
+
+    .lang-btn {
+      padding: 5px 14px;
+      border: none;
+      background: transparent;
+      border-radius: 22px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      font-family: var(--font-body);
+      cursor: pointer;
+      color: var(--mid);
+      transition: all 0.25s;
+      letter-spacing: 0.05em;
+    }
+
+    .lang-btn.active {
+      background: var(--sky);
+      color: var(--white);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--dark);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* ============ HERO ============ */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 100px 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(160deg, #FDF7EE 0%, #FCECD4 60%, #FAE1B8 100%);
+    }
+
+    .hero-bg-circle {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.12;
+      pointer-events: none;
+    }
+
+    .hero-bg-circle.c1 {
+      width: 600px; height: 600px;
+      background: var(--sun);
+      top: -150px; right: -180px;
+    }
+
+    .hero-bg-circle.c2 {
+      width: 350px; height: 350px;
+      background: var(--leaf);
+      bottom: -100px; left: -80px;
+    }
+
+    .hero-bg-circle.c3 {
+      width: 200px; height: 200px;
+      background: var(--sky);
+      top: 50%; left: 55%;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-label {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--clay);
+      background: rgba(208,103,58,0.1);
+      border-radius: 20px;
+      padding: 5px 14px;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-title {
+      font-family: var(--font-head);
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      font-weight: 900;
+      line-height: 1.05;
+      color: var(--dark);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--clay);
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--mid);
+      margin-bottom: 2rem;
+      max-width: 440px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      font-family: var(--font-body);
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all 0.25s;
+      letter-spacing: 0.02em;
+    }
+
+    .btn-primary {
+      background: var(--clay);
+      color: var(--white);
+      box-shadow: 0 4px 20px rgba(208,103,58,0.35);
+    }
+
+    .btn-primary:hover {
+      background: var(--dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(26,26,46,0.25);
+    }
+
+    .btn-secondary {
+      background: var(--white);
+      color: var(--dark);
+      border: 2px solid var(--dark);
+    }
+
+    .btn-secondary:hover {
+      background: var(--dark);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    .hero-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .hero-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      transition: transform 0.25s;
+    }
+
+    .hero-card:hover { transform: translateY(-4px); }
+
+    .hero-card.accent-sun { border-top: 4px solid var(--sun); }
+    .hero-card.accent-leaf { border-top: 4px solid var(--leaf); }
+    .hero-card.accent-sky { border-top: 4px solid var(--sky); }
+    .hero-card.accent-clay { border-top: 4px solid var(--clay); }
+
+    .hero-card .card-icon { font-size: 2rem; margin-bottom: 0.6rem; }
+
+    .hero-card .card-val {
+      font-family: var(--font-head);
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-card .card-label {
+      font-size: 0.78rem;
+      color: var(--mid);
+      font-weight: 500;
+    }
+
+    /* ============ SECTIONS ============ */
+    section { padding: 5rem 2rem; }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sky);
+      margin-bottom: 0.8rem;
+    }
+
+    h2 {
+      font-family: var(--font-head);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--dark);
+      margin-bottom: 1rem;
+    }
+
+    h2 em { font-style: italic; color: var(--clay); }
+
+    .section-intro {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--mid);
+      max-width: 600px;
+      margin-bottom: 3rem;
+    }
+
+    /* ============ ABOUT ============ */
+    #about { background: var(--white); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--mid);
+      margin-bottom: 1.2rem;
+    }
+
+    .about-highlights {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .highlight-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.2rem;
+      background: var(--cream);
+      border-radius: var(--radius);
+      border-left: 4px solid var(--sun);
+    }
+
+    .highlight-item .hi-icon { font-size: 1.6rem; flex-shrink: 0; }
+
+    .highlight-item h4 {
+      font-family: var(--font-head);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 0.3rem;
+    }
+
+    .highlight-item p {
+      font-size: 0.88rem;
+      color: var(--mid);
+      line-height: 1.6;
+    }
+
+    /* ============ ACTIVITIES ============ */
+    #activities { background: var(--light-grey); }
+
+    .activities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .activity-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .activity-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+    }
+
+    .activity-card.sport::before { background: var(--sky); }
+    .activity-card.kreativ::before { background: var(--clay); }
+    .activity-card.natur::before { background: var(--leaf); }
+    .activity-card.spiel::before { background: var(--sun); }
+    .activity-card.event::before { background: var(--dark); }
+
+    .activity-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+    }
+
+    .activity-card .ac-icon {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .activity-card h3 {
+      font-family: var(--font-head);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .activity-card p {
+      font-size: 0.82rem;
+      color: var(--mid);
+      line-height: 1.6;
+    }
+
+    /* ============ HOW IT WORKS ============ */
+    #how { background: var(--white); }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      position: relative;
+    }
+
+    .step {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      position: relative;
+    }
+
+    .step-num {
+      width: 56px; height: 56px;
+      background: var(--dark);
+      color: var(--white);
+      border-radius: 50%;
+      font-family: var(--font-head);
+      font-size: 1.4rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.2rem;
+    }
+
+    .step h3 {
+      font-family: var(--font-head);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      color: var(--dark);
+    }
+
+    .step p {
+      font-size: 0.88rem;
+      color: var(--mid);
+      line-height: 1.65;
+    }
+
+    /* ============ INFO ============ */
+    #info { background: var(--dark); color: var(--cream); }
+
+    #info h2 { color: var(--white); }
+    #info h2 em { color: var(--sun); }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .info-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius);
+      padding: 2rem;
+      transition: background 0.2s;
+    }
+
+    .info-card:hover { background: rgba(255,255,255,0.1); }
+
+    .info-card .ic-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+
+    .info-card h3 {
+      font-family: var(--font-head);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.6rem;
+    }
+
+    .info-card p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+    }
+
+    .info-card strong { color: var(--sun); }
+
+    .price-highlight {
+      margin-top: 3rem;
+      background: var(--sun);
+      border-radius: var(--radius);
+      padding: 2.5rem 3rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .price-highlight .ph-amount {
+      font-family: var(--font-head);
+      font-size: 4rem;
+      font-weight: 900;
+      color: var(--dark);
+      line-height: 1;
+    }
+
+    .price-highlight .ph-text h3 {
+      font-family: var(--font-head);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 0.4rem;
+    }
+
+    .price-highlight .ph-text p {
+      font-size: 0.9rem;
+      color: rgba(26,26,46,0.75);
+      line-height: 1.6;
+    }
+
+    /* ============ REGISTRATION ============ */
+    #register { background: linear-gradient(135deg, #2A6EBB 0%, #1A4A80 100%); color: var(--white); }
+
+    #register h2 { color: var(--white); }
+    #register h2 em { color: var(--sun); }
+    #register .section-intro { color: rgba(255,255,255,0.75); }
+
+    .reg-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .reg-step {
+      background: rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      padding: 1.8rem;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .reg-step .rs-num {
+      font-family: var(--font-head);
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--sun);
+      line-height: 1;
+      margin-bottom: 0.8rem;
+    }
+
+    .reg-step h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .reg-step p {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.6;
+    }
+
+    .reg-cta {
+      text-align: center;
+    }
+
+    .btn-white {
+      background: var(--white);
+      color: var(--sky);
+      font-weight: 700;
+    }
+
+    .btn-white:hover {
+      background: var(--sun);
+      color: var(--dark);
+      transform: translateY(-2px);
+    }
+
+    .reg-note {
+      margin-top: 1.2rem;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.55);
+    }
+
+    /* ============ CONTACT ============ */
+    #contact { background: var(--cream); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .contact-info p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--mid);
+      margin-bottom: 2rem;
+    }
+
+    .contact-items {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.2rem;
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+
+    .contact-item .ci-icon {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .contact-item .ci-icon.sun { background: rgba(245,166,35,0.15); }
+    .contact-item .ci-icon.sky { background: rgba(42,110,187,0.1); }
+    .contact-item .ci-icon.leaf { background: rgba(75,174,106,0.1); }
+
+    .contact-item .ci-text h4 {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--mid);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .contact-item .ci-text a,
+    .contact-item .ci-text span {
+      font-size: 0.95rem;
+      color: var(--dark);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .contact-item .ci-text a:hover { color: var(--sky); text-decoration: underline; }
+
+    .supporters-box {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    }
+
+    .supporters-box h3 {
+      font-family: var(--font-head);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .supporters-box p {
+      font-size: 0.9rem;
+      color: var(--mid);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .supporter-badge {
+      display: inline-block;
+      padding: 6px 14px;
+      background: var(--light-grey);
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--mid);
+      margin: 4px;
+    }
+
+    /* ============ FOOTER ============ */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 3rem 2rem;
+      font-size: 0.82rem;
+      line-height: 1.8;
+    }
+
+    footer strong { color: var(--sun); }
+
+    footer .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    footer .footer-links a {
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      font-size: 0.8rem;
+      transition: color 0.2s;
+    }
+
+    footer .footer-links a:hover { color: var(--sun); }
+
+    /* ============ MOBILE NAV ============ */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 68px; left: 0; right: 0;
+      background: var(--cream);
+      border-bottom: 2px solid var(--sun);
+      padding: 1.5rem 2rem;
+      flex-direction: column;
+      gap: 0.5rem;
+      z-index: 99;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--dark);
+      text-decoration: none;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--light-grey);
+    }
+
+    /* ============ ANIMATIONS ============ */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-up { animation: fadeUp 0.7s ease both; }
+    .delay-1 { animation-delay: 0.15s; }
+    .delay-2 { animation-delay: 0.3s; }
+    .delay-3 { animation-delay: 0.45s; }
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width: 900px) {
+      nav { display: none; }
+      .hamburger { display: flex; }
+
+      .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-cards { grid-template-columns: 1fr 1fr; }
+
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+      .price-highlight { flex-direction: column; padding: 2rem; text-align: center; }
+    }
+
+    @media (max-width: 540px) {
+      header { padding: 0 1.2rem; }
+      section { padding: 3.5rem 1.2rem; }
+      .hero-cards { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+      .hero-card { padding: 1.2rem; }
+      .hero-card .card-val { font-size: 1.5rem; }
+      .btn { padding: 12px 20px; font-size: 0.85rem; }
+    }
+  </style>
 </head>
-<body class="bg-slate-50 text-gray-900">
+<body>
 
-    <nav class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-4 h-20 flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <span class="text-2xl">🎡</span>
-                <span class="text-xl font-extrabold tracking-tight text-blue-600">Ferienpass <span class="text-yellow-500">Murten</span></span>
+<!-- HEADER -->
+<header>
+  <a class="logo" href="#hero">
+    <div class="logo-icon">🎒</div>
+    <div class="logo-text">
+      <strong data-de="Ferienpass Murten" data-fr="Passeport Vacances Morat">Ferienpass Murten</strong>
+      <span data-de="Passeport Vacances Morat" data-fr="Ferienpass Murten">Passeport Vacances Morat</span>
+    </div>
+  </a>
+
+  <nav>
+    <a href="#about" data-de="Über uns" data-fr="À propos">Über uns</a>
+    <a href="#activities" data-de="Aktivitäten" data-fr="Activités">Aktivitäten</a>
+    <a href="#how" data-de="So funktioniert's" data-fr="Comment ça marche">So funktioniert's</a>
+    <a href="#info" data-de="Infos & Preise" data-fr="Infos & Prix">Infos & Preise</a>
+    <a href="#register" data-de="Anmelden" data-fr="S'inscrire">Anmelden</a>
+    <a href="#contact" data-de="Kontakt" data-fr="Contact">Kontakt</a>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('de')">DE</button>
+      <button class="lang-btn" onclick="setLang('fr')">FR</button>
+    </div>
+  </nav>
+
+  <div class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="toggleMenu()" data-de="Über uns" data-fr="À propos">Über uns</a>
+  <a href="#activities" onclick="toggleMenu()" data-de="Aktivitäten" data-fr="Activités">Aktivitäten</a>
+  <a href="#how" onclick="toggleMenu()" data-de="So funktioniert's" data-fr="Comment ça marche">So funktioniert's</a>
+  <a href="#info" onclick="toggleMenu()" data-de="Infos & Preise" data-fr="Infos & Prix">Infos & Preise</a>
+  <a href="#register" onclick="toggleMenu()" data-de="Anmelden" data-fr="S'inscrire">Anmelden</a>
+  <a href="#contact" onclick="toggleMenu()" data-de="Kontakt" data-fr="Contact">Kontakt</a>
+  <div class="lang-toggle" style="margin-top:0.5rem">
+    <button class="lang-btn active" onclick="setLang('de')">DE</button>
+    <button class="lang-btn" onclick="setLang('fr')">FR</button>
+  </div>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-circle c1"></div>
+  <div class="hero-bg-circle c2"></div>
+  <div class="hero-bg-circle c3"></div>
+  <div class="hero-inner">
+    <div class="fade-up">
+      <div class="hero-label" data-de="🍂 Herbstferien Programm" data-fr="🍂 Programme vacances d'automne">🍂 Herbstferien Programm</div>
+      <h1 class="hero-title">
+        <span data-de="Zwei Wochen voller" data-fr="Deux semaines pleines">Zwei Wochen voller</span><br>
+        <em data-de="Spiel, Sport &amp; Spass!" data-fr="Jeux, Sport &amp; Aventure !">Spiel, Sport &amp; Spass!</em>
+      </h1>
+      <p class="hero-desc" data-de="Der Ferienpass Murten bietet Schulkindern der Region ein buntes Ferienprogramm während der Herbstferien — mit Kursen, Ausflügen und unvergesslichen Erlebnissen für jedes Alter." data-fr="Le Passeport Vacances Morat propose aux écoliers de la région un programme de vacances coloré pendant les vacances d'automne — avec des cours, des sorties et des expériences inoubliables pour chaque âge.">
+        Der Ferienpass Murten bietet Schulkindern der Region ein buntes Ferienprogramm während der Herbstferien — mit Kursen, Ausflügen und unvergesslichen Erlebnissen für jedes Alter.
+      </p>
+      <div class="hero-ctas">
+        <a href="#register" class="btn btn-primary" data-de="🎟️ Jetzt anmelden" data-fr="🎟️ S'inscrire maintenant">🎟️ Jetzt anmelden</a>
+        <a href="#about" class="btn btn-secondary" data-de="Mehr erfahren" data-fr="En savoir plus">Mehr erfahren</a>
+      </div>
+    </div>
+
+    <div class="hero-cards fade-up delay-2">
+      <div class="hero-card accent-sun">
+        <div class="card-icon">📅</div>
+        <div class="card-val">2</div>
+        <div class="card-label" data-de="Wochen Herbstferien" data-fr="Semaines de vacances">Wochen Herbstferien</div>
+      </div>
+      <div class="hero-card accent-clay">
+        <div class="card-icon">💰</div>
+        <div class="card-val">Fr. 40.–</div>
+        <div class="card-label" data-de="Pauschale für alle Kurse" data-fr="Forfait tous les cours">Pauschale für alle Kurse</div>
+      </div>
+      <div class="hero-card accent-leaf">
+        <div class="card-icon">🧒</div>
+        <div class="card-val">3H–11H</div>
+        <div class="card-label" data-de="Klasse 1–9 / alle Altersgruppen" data-fr="Classes 1–9 / tous les âges">Klasse 1–9 / alle Altersgruppen</div>
+      </div>
+      <div class="hero-card accent-sky">
+        <div class="card-icon">📍</div>
+        <div class="card-val">Murten</div>
+        <div class="card-label" data-de="& Umgebungsgemeinden" data-fr="& communes environnantes">& Umgebungsgemeinden</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="section-tag" data-de="Über den Verein" data-fr="À propos de l'association">Über den Verein</div>
+        <h2 data-de="Ein Programm für <em>alle Kinder</em>" data-fr="Un programme pour <em>tous les enfants</em>">Ein Programm für <em>alle Kinder</em></h2>
+        <p data-de="Der Verein Ferienpass Murten hat sich zum Ziel gesetzt, allen Schulkindern von Murten und den beteiligten Gemeinden während der Herbstferien ein abwechslungsreiches Programm zu bieten." data-fr="L'association Passeport Vacances Morat a pour objectif d'offrir à tous les écoliers de Morat et des communes participantes un programme varié pendant les vacances d'automne.">
+          Der Verein Ferienpass Murten hat sich zum Ziel gesetzt, allen Schulkindern von Murten und den beteiligten Gemeinden während der Herbstferien ein abwechslungsreiches Programm zu bieten.
+        </p>
+        <p data-de="Ob Sport, Kreativität, Tierwelt oder kulturelle Erlebnisse — für jedes Kind ist etwas dabei! Das Angebot richtet sich an Schülerinnen und Schüler von der 1. Klasse (3H) bis zur 9. Klasse (11H). Die Kurse werden von engagierten Kursleitenden begleitet." data-fr="Que ce soit le sport, la créativité, le monde animal ou les expériences culturelles — il y en a pour tous les goûts ! L'offre s'adresse aux élèves de la 1ère classe (3H) jusqu'à la 9ème classe (11H). Les cours sont accompagnés d'animateurs engagés.">
+          Ob Sport, Kreativität, Tierwelt oder kulturelle Erlebnisse — für jedes Kind ist etwas dabei! Das Angebot richtet sich an Schülerinnen und Schüler von der 1. Klasse (3H) bis zur 9. Klasse (11H). Die Kurse werden von engagierten Kursleitenden begleitet.
+        </p>
+        <p data-de="Der Ferienpass kostet pauschal Fr. 40.– pro Kind und umfasst alle Kursbesuche während der zwei Ferienpasswochen. Er ist personalisiert, nicht übertragbar und muss bei jedem Kurs vorgezeigt werden." data-fr="Le passeport coûte un forfait de Fr. 40.– par enfant et comprend toutes les visites de cours pendant les deux semaines du passeport. Il est personnalisé, non transmissible et doit être présenté à chaque cours.">
+          Der Ferienpass kostet pauschal Fr. 40.– pro Kind und umfasst alle Kursbesuche während der zwei Ferienpasswochen. Er ist personalisiert, nicht übertragbar und muss bei jedem Kurs vorgezeigt werden.
+        </p>
+      </div>
+
+      <div class="about-highlights">
+        <div class="highlight-item">
+          <div class="hi-icon">🏫</div>
+          <div>
+            <h4 data-de="Für alle Kinder der Region" data-fr="Pour tous les enfants de la région">Für alle Kinder der Region</h4>
+            <p data-de="Schulkinder aus Murten und beteiligten Gemeinden ab der 1. Klasse (3H)" data-fr="Écoliers de Morat et des communes participantes dès la 1ère classe (3H)">Schulkinder aus Murten und beteiligten Gemeinden ab der 1. Klasse (3H)</p>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="hi-icon">📋</div>
+          <div>
+            <h4 data-de="Einfache Online-Anmeldung" data-fr="Inscription en ligne simple">Einfache Online-Anmeldung</h4>
+            <p data-de="Anmeldung über das Onlinesystem «Groople» — bis 10 Kurse pro Kind auswählbar" data-fr="Inscription via le système en ligne «Groople» — jusqu'à 10 cours par enfant sélectionnables">Anmeldung über das Onlinesystem «Groople» — bis 10 Kurse pro Kind auswählbar</p>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="hi-icon">🤝</div>
+          <div>
+            <h4 data-de="Ehrenamtliches Engagement" data-fr="Engagement bénévole">Ehrenamtliches Engagement</h4>
+            <p data-de="Getragen von einem engagierten Vereinsteam und zahlreichen freiwilligen Kursleitenden" data-fr="Soutenu par une équipe associative engagée et de nombreux animateurs bénévoles">Getragen von einem engagierten Vereinsteam und zahlreichen freiwilligen Kursleitenden</p>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="hi-icon">💳</div>
+          <div>
+            <h4 data-de="Pauschalbetrag Fr. 40.–" data-fr="Montant forfaitaire Fr. 40.–">Pauschalbetrag Fr. 40.–</div>
+            <p data-de="Deckt alle Kurse der zwei Ferienwochen ab — keine zusätzlichen Kosten" data-fr="Couvre tous les cours des deux semaines de vacances — sans frais supplémentaires">Deckt alle Kurse der zwei Ferienwochen ab — keine zusätzlichen Kosten</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACTIVITIES -->
+<section id="activities">
+  <div class="section-inner">
+    <div class="section-tag" data-de="Was erwartet euch?" data-fr="Qu'est-ce qui vous attend ?">Was erwartet euch?</div>
+    <h2 data-de="Aktivitäten für <em>jeden Geschmack</em>" data-fr="Activités pour <em>tous les goûts</em>">Aktivitäten für <em>jeden Geschmack</em></h2>
+    <p class="section-intro" data-de="Ob du lieber draussen rumtobst, kreativ bist oder einfach Neues entdecken willst — im Ferienpass-Programm ist für alle etwas dabei!" data-fr="Que tu préfères te défouler dehors, être créatif ou simplement découvrir de nouvelles choses — le programme du Passeport Vacances a quelque chose pour chacun !">
+      Ob du lieber draussen rumtobst, kreativ bist oder einfach Neues entdecken willst — im Ferienpass-Programm ist für alle etwas dabei!
+    </p>
+    <div class="activities-grid">
+      <div class="activity-card sport">
+        <span class="ac-icon">⚽</span>
+        <h3 data-de="Sport" data-fr="Sport">Sport</h3>
+        <p data-de="Fussball, Klettern, Schwimmen, Kampfsport und vieles mehr — für Bewegungsfreudige jeden Alters." data-fr="Football, escalade, natation, arts martiaux et bien plus encore — pour les amateurs de sport de tout âge.">Fussball, Klettern, Schwimmen, Kampfsport und vieles mehr — für Bewegungsfreudige jeden Alters.</p>
+      </div>
+      <div class="activity-card kreativ">
+        <span class="ac-icon">🎨</span>
+        <h3 data-de="Kreativität" data-fr="Créativité">Kreativität</h3>
+        <p data-de="Malen, Basteln, Theater, Musik — hier kann jedes Kind seine kreative Seite entfalten." data-fr="Peinture, bricolage, théâtre, musique — chaque enfant peut y développer son côté créatif.">Malen, Basteln, Theater, Musik — hier kann jedes Kind seine kreative Seite entfalten.</p>
+      </div>
+      <div class="activity-card natur">
+        <span class="ac-icon">🐾</span>
+        <h3 data-de="Natur & Tiere" data-fr="Nature & Animaux">Natur & Tiere</h3>
+        <p data-de="Tierbesuche, Naturerlebnisse, Bauernhöfe — Begegnungen mit der Tierwelt und der Natur." data-fr="Visites d'animaux, expériences dans la nature, fermes — des rencontres avec le monde animal et la nature.">Tierbesuche, Naturerlebnisse, Bauernhöfe — Begegnungen mit der Tierwelt und der Natur.</p>
+      </div>
+      <div class="activity-card spiel">
+        <span class="ac-icon">🎮</span>
+        <h3 data-de="Spiel & Spass" data-fr="Jeux & Plaisir">Spiel & Spass</h3>
+        <p data-de="Gesellschaftsspiele, Schnitzeljagden, Rollenspiele und jede Menge Abenteuer!" data-fr="Jeux de société, chasses au trésor, jeux de rôle et plein d'aventures !">Gesellschaftsspiele, Schnitzeljagden, Rollenspiele und jede Menge Abenteuer!</p>
+      </div>
+      <div class="activity-card event">
+        <span class="ac-icon">🎪</span>
+        <h3 data-de="Events & Ausflüge" data-fr="Événements & Sorties">Events & Ausflüge</h3>
+        <p data-de="Besondere Veranstaltungen, Besuche von Betrieben, kulturelle Ausflüge — unvergessliche Erlebnisse." data-fr="Événements spéciaux, visites d'entreprises, sorties culturelles — des expériences inoubliables.">Besondere Veranstaltungen, Besuche von Betrieben, kulturelle Ausflüge — unvergessliche Erlebnisse.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="section-inner">
+    <div class="section-tag" data-de="Ablauf" data-fr="Déroulement">Ablauf</div>
+    <h2 data-de="So einfach <em>funktioniert's</em>" data-fr="C'est aussi simple <em>que ça</em>">So einfach <em>funktioniert's</em></h2>
+    <p class="section-intro" data-de="In wenigen Schritten zur perfekten Herbstferienplanung für dein Kind." data-fr="En quelques étapes pour planifier les vacances d'automne parfaites pour votre enfant.">In wenigen Schritten zur perfekten Herbstferienplanung für dein Kind.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3 data-de="Kursangebot anschauen" data-fr="Consulter l'offre de cours">Kursangebot anschauen</h3>
+        <p data-de="Stöbere durch das vielfältige Kursangebot für Primarschüler (3H–8H) und Teenies (9H–11H)." data-fr="Parcourez l'offre de cours variée pour les élèves du primaire (3H–8H) et les ados (9H–11H).">Stöbere durch das vielfältige Kursangebot für Primarschüler (3H–8H) und Teenies (9H–11H).</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3 data-de="Online registrieren" data-fr="S'inscrire en ligne">Online registrieren</h3>
+        <p data-de="Registriere dein Kind Ende August im Onlinesystem «Groople». Trage Abwesenheiten ein und wähle bis zu 10 Kurse nach Prioritäten aus." data-fr="Inscrivez votre enfant fin août dans le système en ligne «Groople». Saisissez les absences et sélectionnez jusqu'à 10 cours par ordre de priorité.">Registriere dein Kind Ende August im Onlinesystem «Groople». Trage Abwesenheiten ein und wähle bis zu 10 Kurse nach Prioritäten aus.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3 data-de="Zuteilung erhalten" data-fr="Recevoir l'attribution">Zuteilung erhalten</h3>
+        <p data-de="Nach Ablauf der Anmeldefrist (ca. 19. September) wird die Kurszuteilung vom System vorgenommen. Du erhältst eine E-Mail mit dem persönlichen Ferienpass." data-fr="Après la clôture des inscriptions (environ 19 septembre), les cours sont attribués par le système. Vous recevrez un e-mail avec le passeport personnel.">Nach Ablauf der Anmeldefrist (ca. 19. September) wird die Kurszuteilung vom System vorgenommen. Du erhältst eine E-Mail mit dem persönlichen Ferienpass.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3 data-de="Bezahlen" data-fr="Payer">Bezahlen</h3>
+        <p data-de="Überweise pauschal Fr. 40.– per E-Banking. Die Bankangaben erhältst du per E-Mail nach der Anmeldung." data-fr="Versez le forfait de Fr. 40.– par e-banking. Les coordonnées bancaires vous seront envoyées par e-mail après l'inscription.">Überweise pauschal Fr. 40.– per E-Banking. Die Bankangaben erhältst du per E-Mail nach der Anmeldung.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <h3 data-de="Ferienpass ausdrucken" data-fr="Imprimer le passeport">Ferienpass ausdrucken</h3>
+        <p data-de="Drucke deinen persönlichen Ferienpass aus und bring ihn zu jedem Kurs mit. Er ist nicht übertragbar." data-fr="Imprimez votre passeport personnel et apportez-le à chaque cours. Il n'est pas transmissible.">Drucke deinen persönlichen Ferienpass aus und bring ihn zu jedem Kurs mit. Er ist nicht übertragbar.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">6</div>
+        <h3 data-de="Spass haben!" data-fr="S'amuser !">Spass haben!</h3>
+        <p data-de="Los geht's — zwei tolle Wochen mit neuen Freunden, spannenden Kursen und unvergesslichen Momenten!" data-fr="C'est parti — deux semaines formidables avec de nouveaux amis, des cours passionnants et des moments inoubliables !">Los geht's — zwei tolle Wochen mit neuen Freunden, spannenden Kursen und unvergesslichen Momenten!</p>
+      </div>
+    </div>
+
+    <div style="margin-top: 2.5rem; padding: 1.5rem 2rem; background: var(--light-grey); border-radius: var(--radius); border-left: 4px solid var(--sky);">
+      <strong data-de="💡 Tipp: Persönliche Anmeldehilfe" data-fr="💡 Conseil : aide à l'inscription personnelle">💡 Tipp: Persönliche Anmeldehilfe</strong><br>
+      <span data-de="Wir helfen gerne bei der Anmeldung. Du kannst uns an der Primarschule Murten, Längmatt 4–6, 1. Stock (hinter dem Sekretariat) besuchen. Die genauen Termine findest du auf dieser Seite." data-fr="Nous sommes heureux d'aider à l'inscription. Vous pouvez nous rendre visite à l'école primaire de Morat, Längmatt 4–6, 1er étage (derrière le secrétariat). Les dates exactes sont disponibles sur cette page.">Wir helfen gerne bei der Anmeldung. Du kannst uns an der Primarschule Murten, Längmatt 4–6, 1. Stock (hinter dem Sekretariat) besuchen. Die genauen Termine findest du auf dieser Seite.</span>
+    </div>
+  </div>
+</section>
+
+<!-- INFO & PRICES -->
+<section id="info">
+  <div class="section-inner">
+    <div class="section-tag" style="color: var(--sun);" data-de="Wichtige Informationen" data-fr="Informations importantes">Wichtige Informationen</div>
+    <h2 data-de="Infos &amp; <em>Preise</em>" data-fr="Infos &amp; <em>Prix</em>">Infos &amp; <em>Preise</em></h2>
+    <p class="section-intro" style="color:rgba(255,255,255,0.65);" data-de="Alles was du wissen musst — kompakt zusammengefasst." data-fr="Tout ce que vous devez savoir — résumé de façon compacte.">Alles was du wissen musst — kompakt zusammengefasst.</p>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <span class="ic-icon">📅</span>
+        <h3 data-de="Wann?" data-fr="Quand ?">Wann?</h3>
+        <p data-de="Der Ferienpass findet während der <strong>zwei Wochen Herbstferien</strong> statt. Die genauen Daten werden jeweils rechtzeitig auf dieser Website bekanntgegeben." data-fr="Le Passeport Vacances se déroule pendant les <strong>deux semaines de vacances d'automne</strong>. Les dates exactes sont communiquées en temps voulu sur ce site.">Der Ferienpass findet während der <strong>zwei Wochen Herbstferien</strong> statt. Die genauen Daten werden jeweils rechtzeitig auf dieser Website bekanntgegeben.</p>
+      </div>
+      <div class="info-card">
+        <span class="ic-icon">👦</span>
+        <h3 data-de="Für wen?" data-fr="Pour qui ?">Für wen?</h3>
+        <p data-de="Für alle Schulkinder der <strong>1. Klasse (3H) bis 9. Klasse (11H)</strong> aus Murten und den beteiligten Gemeinden. Das Alter während dem Ferienpass ist massgebend." data-fr="Pour tous les écoliers de la <strong>1ère classe (3H) à la 9ème classe (11H)</strong> de Morat et des communes participantes. L'âge pendant le Passeport Vacances est déterminant.">Für alle Schulkinder der <strong>1. Klasse (3H) bis 9. Klasse (11H)</strong> aus Murten und den beteiligten Gemeinden. Das Alter während dem Ferienpass ist massgebend.</p>
+      </div>
+      <div class="info-card">
+        <span class="ic-icon">📝</span>
+        <h3 data-de="Anmeldephase" data-fr="Phase d'inscription">Anmeldephase</h3>
+        <p data-de="Die Anmeldung ist <strong>Ende August</strong> über das Onlinesystem «Groople» möglich. Pro Kind können bis zu <strong>10 Kurse</strong> nach Priorität gewählt werden. Keine Eile — wer schneller klickt, hat keinen Vorteil!" data-fr="L'inscription est possible <strong>fin août</strong> via le système en ligne «Groople». Jusqu'à <strong>10 cours</strong> peuvent être choisis par ordre de priorité. Pas de précipitation — cliquer plus vite n'est pas un avantage !">Die Anmeldung ist <strong>Ende August</strong> über das Onlinesystem «Groople» möglich. Pro Kind können bis zu <strong>10 Kurse</strong> nach Priorität gewählt werden. Keine Eile — wer schneller klickt, hat keinen Vorteil!</p>
+      </div>
+      <div class="info-card">
+        <span class="ic-icon">🔄</span>
+        <h3 data-de="Restplatzbörse" data-fr="Bourse de places restantes">Restplatzbörse</h3>
+        <p data-de="Nach der regulären Zuteilung findet Ende September eine Restplatzbörse statt. Dort können noch freie Kursplätze belegt werden — hier gilt: <strong>wer schneller ist, bekommt den Platz</strong>." data-fr="Après l'attribution régulière, une bourse de places restantes a lieu fin septembre. Des places de cours encore libres peuvent y être réservées — ici : <strong>premier arrivé, premier servi</strong>.">Nach der regulären Zuteilung findet Ende September eine Restplatzbörse statt. Dort können noch freie Kursplätze belegt werden — hier gilt: <strong>wer schneller ist, bekommt den Platz</strong>.</p>
+      </div>
+      <div class="info-card">
+        <span class="ic-icon">🎟️</span>
+        <h3 data-de="Der Ferienpass" data-fr="Le Passeport">Der Ferienpass</h3>
+        <p data-de="Nach der Zuteilung erhältst du deinen <strong>persönlichen Ferienpass per E-Mail</strong>. Diesen kannst du selbst ausdrucken. Er ist personalisiert und <strong>nicht übertragbar</strong> — und muss bei jedem Kurs vorgezeigt werden." data-fr="Après l'attribution, tu reçois ton <strong>passeport personnel par e-mail</strong>. Tu peux l'imprimer toi-même. Il est personnalisé et <strong>non transmissible</strong> — et doit être présenté à chaque cours.">Nach der Zuteilung erhältst du deinen <strong>persönlichen Ferienpass per E-Mail</strong>. Diesen kannst du selbst ausdrucken. Er ist personalisiert und <strong>nicht übertragbar</strong> — und muss bei jedem Kurs vorgezeigt werden.</p>
+      </div>
+      <div class="info-card">
+        <span class="ic-icon">📞</span>
+        <h3 data-de="Hotline" data-fr="Hotline">Hotline</h3>
+        <p data-de="Während dem Ferienpass ist eine Hotline erreichbar: <strong>077 522 51 91</strong>. Ausserhalb der Ferienpasszeit erreichst du uns per E-Mail." data-fr="Pendant le Passeport Vacances, une hotline est joignable : <strong>077 522 51 91</strong>. En dehors du Passeport Vacances, contactez-nous par e-mail.">Während dem Ferienpass ist eine Hotline erreichbar: <strong>077 522 51 91</strong>. Ausserhalb der Ferienpasszeit erreichst du uns per E-Mail.</p>
+      </div>
+    </div>
+
+    <div class="price-highlight">
+      <div class="ph-amount">Fr. 40.–</div>
+      <div class="ph-text">
+        <h3 data-de="Pauschale für den gesamten Ferienpass" data-fr="Forfait pour l'ensemble du Passeport Vacances">Pauschale für den gesamten Ferienpass</h3>
+        <p data-de="Ein einziger Betrag deckt alle Kursbesuche während der zwei Ferienpasswochen ab. Bezahlung per E-Banking nach erfolgter Anmeldung." data-fr="Un seul montant couvre toutes les visites de cours pendant les deux semaines du Passeport Vacances. Paiement par e-banking après inscription.">Ein einziger Betrag deckt alle Kursbesuche während der zwei Ferienpasswochen ab. Bezahlung per E-Banking nach erfolgter Anmeldung.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGISTRATION -->
+<section id="register">
+  <div class="section-inner">
+    <div class="section-tag" style="color:var(--sun);" data-de="Anmeldung" data-fr="Inscription">Anmeldung</div>
+    <h2 data-de="Jetzt <em>anmelden!</em>" data-fr="Inscrivez-vous <em>maintenant !</em>">Jetzt <em>anmelden!</em></h2>
+    <p class="section-intro" data-de="Die Anmeldung für den Ferienpass erfolgt über das Onlinesystem «Groople». Registriere dich Ende August und wähle deine Lieblingskurse." data-fr="L'inscription au Passeport Vacances se fait via le système en ligne «Groople». Inscrivez-vous fin août et choisissez vos cours préférés.">
+      Die Anmeldung für den Ferienpass erfolgt über das Onlinesystem «Groople». Registriere dich Ende August und wähle deine Lieblingskurse.
+    </p>
+
+    <div class="reg-steps">
+      <div class="reg-step">
+        <div class="rs-num">1</div>
+        <h4 data-de="AGB lesen" data-fr="Lire les CGU">AGB lesen</h4>
+        <p data-de="Lies zuerst die Allgemeinen Geschäftsbedingungen aufmerksam durch." data-fr="Lisez d'abord attentivement les conditions générales d'utilisation.">Lies zuerst die Allgemeinen Geschäftsbedingungen aufmerksam durch.</p>
+      </div>
+      <div class="reg-step">
+        <div class="rs-num">2</div>
+        <h4 data-de="Grüner Login-Button" data-fr="Bouton login vert">Grüner Login-Button</h4>
+        <p data-de="Klicke auf den grünen LOG-IN-Button — damit akzeptierst du die AGB und wirst zu «Groople» weitergeleitet." data-fr="Cliquez sur le bouton LOG-IN vert — cela accepte les CGU et vous redirige vers «Groople».">Klicke auf den grünen LOG-IN-Button — damit akzeptierst du die AGB und wirst zu «Groople» weitergeleitet.</p>
+      </div>
+      <div class="reg-step">
+        <div class="rs-num">3</div>
+        <h4 data-de="Abwesenheiten eintragen" data-fr="Saisir les absences">Abwesenheiten eintragen</h4>
+        <p data-de="Grün = verfügbar, Rot = abwesend. So werden dir nur passende Kurse angezeigt." data-fr="Vert = disponible, Rouge = absent. Ainsi, seuls les cours compatibles vous sont affichés.">Grün = verfügbar, Rot = abwesend. So werden dir nur passende Kurse angezeigt.</p>
+      </div>
+      <div class="reg-step">
+        <div class="rs-num">4</div>
+        <h4 data-de="Kurse priorisieren" data-fr="Prioriser les cours">Kurse priorisieren</h4>
+        <p data-de="Wähle bis zu 10 Kurse und ordne sie nach Priorität. Du kannst bis zum 19. September Änderungen vornehmen." data-fr="Choisissez jusqu'à 10 cours et classez-les par priorité. Vous pouvez effectuer des modifications jusqu'au 19 septembre.">Wähle bis zu 10 Kurse und ordne sie nach Priorität. Du kannst bis zum 19. September Änderungen vornehmen.</p>
+      </div>
+    </div>
+
+    <div class="reg-cta">
+      <a href="https://www.ferienpass-murten.ch" target="_blank" class="btn btn-white" style="font-size:1rem; padding: 16px 36px;">
+        <span data-de="🎟️ Zur Anmeldung (Groople)" data-fr="🎟️ Vers l'inscription (Groople)">🎟️ Zur Anmeldung (Groople)</span>
+      </a>
+      <p class="reg-note" data-de="Die Anmeldung ist Ende August freigeschaltet. Ausserhalb dieser Periode ist das System geschlossen." data-fr="L'inscription est ouverte fin août. En dehors de cette période, le système est fermé.">
+        Die Anmeldung ist Ende August freigeschaltet. Ausserhalb dieser Periode ist das System geschlossen.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="section-tag" data-de="Kontakt" data-fr="Contact">Kontakt</div>
+        <h2 data-de="Hast du <em>Fragen?</em>" data-fr="Des <em>questions ?</em>">Hast du <em>Fragen?</em></h2>
+        <p data-de="Wir freuen uns über deine Nachricht! Bei Fragen, Unklarheiten oder Problemen zögere nicht, uns zu kontaktieren. Ausserhalb der Ferienpasszeit antworten wir per E-Mail, während dem Ferienpass ist eine Hotline erreichbar." data-fr="Nous sommes heureux de recevoir votre message ! En cas de questions, d'imprécisions ou de problèmes, n'hésitez pas à nous contacter. En dehors de la période du Passeport Vacances, nous répondons par e-mail, pendant le Passeport Vacances une hotline est joignable.">
+          Wir freuen uns über deine Nachricht! Bei Fragen, Unklarheiten oder Problemen zögere nicht, uns zu kontaktieren. Ausserhalb der Ferienpasszeit antworten wir per E-Mail, während dem Ferienpass ist eine Hotline erreichbar.
+        </p>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="ci-icon sun">✉️</div>
+            <div class="ci-text">
+              <h4 data-de="E-Mail (Deutsch)" data-fr="E-mail (Allemand)">E-Mail (Deutsch)</h4>
+              <a href="mailto:info@ferienpass-murten.ch">info@ferienpass-murten.ch</a>
             </div>
-            
-            <div class="hidden md:flex space-x-8 font-medium">
-                <a href="#info" class="hover:text-blue-600 transition lang-de">Infos</a>
-                <a href="#info" class="hover:text-blue-600 transition lang-fr">Infos</a>
-                <a href="#programm" class="hover:text-blue-600 transition lang-de">Programm</a>
-                <a href="#programm" class="hover:text-blue-600 transition lang-fr">Programme</a>
-                <a href="#kontakt" class="hover:text-blue-600 transition lang-de">Kontakt</a>
-                <a href="#kontakt" class="hover:text-blue-600 transition lang-fr">Contact</a>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon sky">✉️</div>
+            <div class="ci-text">
+              <h4 data-de="E-Mail (Français)" data-fr="E-mail (Français)">E-Mail (Français)</h4>
+              <a href="mailto:info@passeport-vacances-morat.ch">info@passeport-vacances-morat.ch</a>
             </div>
-
-            <div class="flex items-center bg-gray-100 rounded-full px-3 py-1 border">
-                <button id="btn-de" onclick="setLanguage('de')" class="px-2 py-1 text-sm active-lang">DE</button>
-                <span class="text-gray-300">|</span>
-                <button id="btn-fr" onclick="setLanguage('fr')" class="px-2 py-1 text-sm text-gray-500">FR</button>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon leaf">📞</div>
+            <div class="ci-text">
+              <h4 data-de="Hotline (nur während Ferienpass)" data-fr="Hotline (uniquement pendant le Passeport)">Hotline (nur während Ferienpass)</h4>
+              <a href="tel:0775225191">077 522 51 91</a>
             </div>
-        </div>
-    </nav>
-
-    <section class="relative bg-blue-600 py-24 text-white text-center overflow-hidden">
-        <div class="relative z-10 max-w-4xl mx-auto px-4">
-            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight lang-de italic">
-                Abenteuer erleben in den Ferien!
-            </h1>
-            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight lang-fr italic">
-                Vivre des aventures pendant les vacances !
-            </h1>
-            <p class="text-xl md:text-2xl mb-10 opacity-90 lang-de">Der Ferienpass Murten bietet Kindern und Jugendlichen eine spannende Zeit.</p>
-            <p class="text-xl md:text-2xl mb-10 opacity-90 lang-fr">Le Passeport Vacances Morat offre aux enfants et adolescents des moments passionnants.</p>
-            
-            <a href="#programm" class="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold py-4 px-10 rounded-full text-lg shadow-lg transition-transform transform hover:scale-105 inline-block lang-de">
-                Zum Programm 2024
-            </a>
-            <a href="#programm" class="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold py-4 px-10 rounded-full text-lg shadow-lg transition-transform transform hover:scale-105 inline-block lang-fr">
-                Vers le programme 2024
-            </a>
-        </div>
-        <div class="absolute top-0 left-0 w-64 h-64 bg-blue-500 rounded-full -translate-x-1/2 -translate-y-1/2 opacity-50"></div>
-        <div class="absolute bottom-0 right-0 w-96 h-96 bg-blue-700 rounded-full translate-x-1/3 translate-y-1/3 opacity-50"></div>
-    </section>
-
-    <section id="info" class="py-20 max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-8">
-        <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 text-center">
-            <div class="text-4xl mb-4">📅</div>
-            <h3 class="text-xl font-bold mb-2 lang-de">Wann?</h3>
-            <h3 class="text-xl font-bold mb-2 lang-fr">Quand ?</h3>
-            <p class="text-gray-600 lang-de">Vom 7. bis 11. Oktober 2024.</p>
-            <p class="text-gray-600 lang-fr">Du 7 au 11 octobre 2024.</p>
-        </div>
-        <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 text-center">
-            <div class="text-4xl mb-4">👥</div>
-            <h3 class="text-xl font-bold mb-2 lang-de">Wer?</h3>
-            <h3 class="text-xl font-bold mb-2 lang-fr">Pour qui ?</h3>
-            <p class="text-gray-600 lang-de">Alle Schulkinder aus Murten und Umgebung.</p>
-            <p class="text-gray-600 lang-fr">Tous les écoliers de Morat et des environs.</p>
-        </div>
-        <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 text-center">
-            <div class="text-4xl mb-4">💰</div>
-            <h3 class="text-xl font-bold mb-2 lang-de">Kosten?</h3>
-            <h3 class="text-xl font-bold mb-2 lang-fr">Coûts ?</h3>
-            <p class="text-gray-600 lang-de">Günstige Tagespässe für alle Familien.</p>
-            <p class="text-gray-600 lang-fr">Des pass journaliers abordables pour toutes les familles.</p>
-        </div>
-    </section>
-
-    <footer id="kontakt" class="bg-slate-900 text-white py-16">
-        <div class="max-w-6xl mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-8 lang-de">Kontakt & Fragen</h2>
-            <h2 class="text-3xl font-bold mb-8 lang-fr">Contact & Questions</h2>
-            <p class="mb-4 opacity-80">Verein Ferienpass Murten</p>
-            <p class="mb-8 opacity-80">E-Mail: info@ferienpass-murten.ch</p>
-            <div class="pt-8 border-t border-slate-800 text-sm opacity-50">
-                &copy; 2024 Ferienpass Murten / Passeport Vacances Morat
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon sun">📍</div>
+            <div class="ci-text">
+              <h4 data-de="Anmelde-Hilfe vor Ort" data-fr="Aide à l'inscription sur place">Anmelde-Hilfe vor Ort</h4>
+              <span data-de="Primarschule Murten, Längmatt 4–6, 1. Stock" data-fr="École primaire Morat, Längmatt 4–6, 1er étage">Primarschule Murten, Längmatt 4–6, 1. Stock</span>
             </div>
+          </div>
         </div>
-    </footer>
+      </div>
 
-    <script>
-        function setLanguage(lang) {
-            const deElements = document.querySelectorAll('.lang-de');
-            const frElements = document.querySelectorAll('.lang-fr');
-            const btnDe = document.getElementById('btn-de');
-            const btnFr = document.getElementById('btn-fr');
+      <div class="supporters-box">
+        <h3 data-de="Mitmachen &amp; Unterstützen" data-fr="Participer &amp; Soutenir">Mitmachen &amp; Unterstützen</h3>
+        <p data-de="Kannst du dir vorstellen, beim Ferienpass mitzumachen? Als Kursleiterin oder Kursleiter, Sponsor oder freiwillige Helferin? Wir freuen uns über jede Unterstützung! Zögere nicht, uns zu kontaktieren — mehr Informationen findest du auch unter den Kontaktadressen oben." data-fr="Pouvez-vous imaginer de rejoindre le Passeport Vacances ? Comme animateur ou animatrice, sponsor ou bénévole ? Nous sommes heureux de tout soutien ! N'hésitez pas à nous contacter — plus d'informations également aux adresses de contact ci-dessus.">
+          Kannst du dir vorstellen, beim Ferienpass mitzumachen? Als Kursleiterin oder Kursleiter, Sponsor oder freiwillige Helferin? Wir freuen uns über jede Unterstützung! Zögere nicht, uns zu kontaktieren — mehr Informationen findest du auch unter den Kontaktadressen oben.
+        </p>
+        <div>
+          <span class="supporter-badge" data-de="🏃 Kursleitung" data-fr="🏃 Animateur/trice">🏃 Kursleitung</span>
+          <span class="supporter-badge" data-de="💼 Sponsor" data-fr="💼 Sponsor">💼 Sponsor</span>
+          <span class="supporter-badge" data-de="🤝 Freiwillig helfen" data-fr="🤝 Bénévole">🤝 Freiwillig helfen</span>
+          <span class="supporter-badge" data-de="🏢 Betrieb besuchen lassen" data-fr="🏢 Ouvrir mon entreprise">🏢 Betrieb besuchen lassen</span>
+        </div>
 
-            if (lang === 'fr') {
-                deElements.forEach(el => el.style.display = 'none');
-                frElements.forEach(el => el.style.display = 'block');
-                btnFr.classList.add('active-lang', 'text-blue-600');
-                btnFr.classList.remove('text-gray-500');
-                btnDe.classList.remove('active-lang', 'text-blue-600');
-                btnDe.classList.add('text-gray-500');
-                document.documentElement.lang = 'fr';
-            } else {
-                deElements.forEach(el => el.style.display = 'block');
-                frElements.forEach(el => el.style.display = 'none');
-                btnDe.classList.add('active-lang', 'text-blue-600');
-                btnDe.classList.remove('text-gray-500');
-                btnFr.classList.remove('active-lang', 'text-blue-600');
-                btnFr.classList.add('text-gray-500');
-                document.documentElement.lang = 'de';
-            }
-        }
-    </script>
+        <div style="margin-top: 2rem; padding: 1.5rem; background: var(--cream); border-radius: 14px;">
+          <strong style="font-family: var(--font-head); font-size: 1rem;" data-de="Treffen für Interessierte" data-fr="Réunions pour les intéressés">Treffen für Interessierte</strong><br>
+          <p style="font-size:0.85rem; color:var(--mid); margin-top: 0.4rem; line-height:1.7;" data-de="Jeweils mittwochs und freitags von 09:00–10:30 Uhr im Hotel Murten treffen wir uns, um potenzielle neue Mitwirkende willkommen zu heissen. Schau einfach vorbei!" data-fr="Chaque mercredi et vendredi de 09h00 à 10h30 à l'Hôtel Murten, nous nous réunissons pour accueillir de nouveaux collaborateurs potentiels. Venez simplement nous rendre visite !">Jeweils mittwochs und freitags von 09:00–10:30 Uhr im Hotel Murten treffen wir uns, um potenzielle neue Mitwirkende willkommen zu heissen. Schau einfach vorbei!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <strong>Ferienpass Murten | Passeport Vacances Morat</strong><br>
+  <span data-de="© 2025 Verein Ferienpass Murten. Alle Rechte vorbehalten." data-fr="© 2025 Association Passeport Vacances Morat. Tous droits réservés.">© 2025 Verein Ferienpass Murten. Alle Rechte vorbehalten.</span>
+  <div class="footer-links">
+    <a href="mailto:info@ferienpass-murten.ch">info@ferienpass-murten.ch</a>
+    <a href="mailto:info@passeport-vacances-morat.ch">info@passeport-vacances-morat.ch</a>
+    <a href="#hero" data-de="Zurück nach oben" data-fr="Retour en haut">↑ <span data-de="Zurück nach oben" data-fr="Retour en haut">Zurück nach oben</span></a>
+  </div>
+</footer>
+
+<script>
+  // ===================== LANGUAGE SWITCH =====================
+  let currentLang = 'de';
+
+  function setLang(lang) {
+    currentLang = lang;
+    document.documentElement.lang = lang;
+
+    // Update all elements with data-de / data-fr
+    document.querySelectorAll('[data-de]').forEach(el => {
+      const txt = el.getAttribute('data-' + lang);
+      if (!txt) return;
+      // Use innerHTML so HTML tags like <em> and <strong> are preserved
+      el.innerHTML = txt;
+    });
+
+    // Update lang buttons
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.textContent.trim().toLowerCase() === lang);
+    });
+  }
+
+  // ===================== MOBILE MENU =====================
+  function toggleMenu() {
+    const m = document.getElementById('mobileMenu');
+    m.classList.toggle('open');
+  }
+
+  // Close mobile menu on outside click
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('mobileMenu');
+    const hamburger = document.querySelector('.hamburger');
+    if (menu.classList.contains('open') && !menu.contains(e.target) && !hamburger.contains(e.target)) {
+      menu.classList.remove('open');
+    }
+  });
+
+  // ===================== SCROLL ANIMATIONS =====================
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.activity-card, .step, .info-card, .reg-step, .highlight-item, .contact-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
 </body>
 </html>
