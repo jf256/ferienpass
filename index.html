@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferienpass Murten / Passeport Vacances Morat</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .lang-fr { display: none; } /* Standardmäßig Französisch ausblenden */
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+    <nav class="bg-blue-600 text-white p-4 shadow-md sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-bold">Ferienpass Murten</h1>
+            <div class="space-x-4 flex items-center">
+                <a href="#" class="hover:underline lang-de">Programm</a>
+                <a href="#" class="hover:underline lang-fr">Programme</a>
+                <button onclick="setLanguage('de')" class="bg-white text-blue-600 px-2 py-1 rounded text-sm font-bold">DE</button>
+                <button onclick="setLanguage('fr')" class="bg-white text-blue-600 px-2 py-1 rounded text-sm font-bold">FR</button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="py-20 bg-blue-500 text-white text-center">
+        <h2 class="text-4xl font-extrabold mb-4 lang-de">Abenteuer in den Ferien!</h2>
+        <h2 class="text-4xl font-extrabold mb-4 lang-fr">L'aventure pendant les vacances !</h2>
+        <p class="text-xl lang-de">Melde dich jetzt für den Ferienpass Murten 2024 an.</p>
+        <p class="text-xl lang-fr">Inscris-toi maintenant au Passeport Vacances Morat 2024.</p>
+    </header>
+
+    <main class="container mx-auto p-8 text-center">
+        <div class="bg-white p-10 rounded-xl shadow-lg">
+            <h3 class="text-2xl font-bold mb-4 lang-de">Willkommen</h3>
+            <h3 class="text-2xl font-bold mb-4 lang-fr">Bienvenue</h3>
+            <p class="lang-de text-gray-600">Hier entstehen bald die neuen Inhalte für die Kinder aus Murten und Umgebung.</p>
+            <p class="lang-fr text-gray-600">Ici seront bientôt disponibles les nouveaux contenus pour les enfants de Morat et des environs.</p>
+        </div>
+    </main>
+
+    <script>
+        function setLanguage(lang) {
+            const deElements = document.querySelectorAll('.lang-de');
+            const frElements = document.querySelectorAll('.lang-fr');
+            
+            if (lang === 'fr') {
+                deElements.forEach(el => el.style.display = 'none');
+                frElements.forEach(el => el.style.display = 'block');
+            } else {
+                deElements.forEach(el => el.style.display = 'block');
+                frElements.forEach(el => el.style.display = 'none');
+            }
+        }
+    </script>
+</body>
+</html>
